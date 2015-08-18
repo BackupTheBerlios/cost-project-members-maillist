@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> No subject
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.0.1331727763.30414.cost-project-members%40lists.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000146.html">
+   <LINK REL="Next"  HREF="000051.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>No subject</H1>
+    <B></B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.0.1331727763.30414.cost-project-members%40lists.berlios.de%3E"
+       TITLE="No subject">
+       </A><BR>
+    <I>Wed Mar 14 13:22:43 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000146.html">No subject
+</A></li>
+        <LI>Next message: <A HREF="000051.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#34">[ date ]</a>
+              <a href="thread.html#34">[ thread ]</a>
+              <a href="subject.html#34">[ subject ]</a>
+              <a href="author.html#34">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>character variables haveing a list of character stings for permissible
+variables and all numerics being either real or integer and haveing a
+specified range.=20
+
+
+
+
+
+I have the &quot;check.fileds&quot; function more or less ready, and this can now
+save its output to file.=20
+Also (so that nobody else spends time doing this)  I have created list
+objects for all the variables in the fish frame tables ce cl and the cs.
+For characters (factors) this is Teunis's  &quot;code lists&quot;, and for
+numerics it's the permissible ranges.=20
+
+e.g.
+names(code.list)
+ [1] &quot;landCtry&quot;   &quot;vslFlgCtry&quot; &quot;area&quot;       &quot;rect&quot;       &quot;foCatNat&quot; =20
+ [6] &quot;foCatEu5&quot;   &quot;foCatEu6&quot;   &quot;spp&quot;        &quot;landCat&quot;    &quot;commCatScl&quot;
+[11] &quot;sampType&quot;   &quot;proj&quot;       &quot;sampCtry&quot;   &quot;sampMeth&quot;   &quot;foVal&quot;    =20
+[16] &quot;aggLev&quot;     &quot;date&quot;       &quot;time&quot;       &quot;catchCat&quot;   &quot;subSampCat&quot;
+[21] &quot;lenCode&quot;    &quot;sex&quot;        &quot;stock&quot;      &quot;plusGrp&quot;    &quot;otoSide&quot;  =20
+[26] &quot;matScale&quot;   &quot;gear&quot;       &quot;valCode&quot;  =20
+
+head(code.list$spp)
+
+                species   tsn       nodc ices
+1  Aphanothece saxicola   643 0302010405  001
+2  Aphanothece stagnina   644 0302010406  002
+3      Asarum hartwegii 18356 3206010205  003
+4         Nuphar luteum 18372 3207010301  004
+5      Penstemon dolius 33885 3270035536  005
+6 Penstemon linarioides 33937 3270035570  006
+
+
+This potentially allows us to validate any data against this and there
+is the potential to add to the code lists if we feel in time that COST
+needs to include more than is currently allowed by fish frame.=20
+
+Also have made data frame lifted from the FF document which is just all
+the variables, the info on them and indicator variables for which tables
+they occur in. =20
+e.g.=20
+
+    variable           description type cetab cltab trtab hhtab sltab
+hltab catab req    checks
+1 vslFlgCtry Vessel Flag Country *    s     1     1     1     1     1
+1     1   M Code list
+                                                  Comments
+ISO 3166-1 alpha-3 codes. The flag country of the vessel
+
+
+The problem I will have is getting this all onto the CVS site! Might
+need some help there.=20
+
+#---------------------------------
+
+For the raw data - validated data stage=20
+Don't know what anybody else thinks but seems to me all we need to do is
+Read in (or create) data in R in FF exchange format =3D ceData-class
+clData-calss
+
+Run the various validation functions=20
+
+Ernesto's check methods
+checkCLmns
+	check
+
+My check fields=20
+
+Mathieu's outlier identifier
+
+And if all those are passed OK then the data is class validated =20
+
+If we wanted to keep things tight we could have it that these functions
+returned data passed to them that was ok and didn't otherwise.=20
+
+It might be a bit late to suggest it now but the simplest way to record
+the validation status is to have a slot called &quot;status&quot; on the ce, cl
+and cs data (or used description) which is set at either &quot;raw&quot; or
+&quot;validated&quot;. It would be raw while the validation functions are running
+and validated when these checks are successful. Then any function can
+have a line at the beginning which checks=20
+
+if(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">costobj at status</A>=3D=3D&quot;raw&quot; )=20
+{&quot;warning this is not validated&quot;...  and we may or may not allow the
+function to run}=20
+
+if(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">costobj at status</A>=3D=3D&quot;validated&quot; )=20
+{
+Does whatever the function does=20
+}
+
+
+
+All the best
+Alastair=20
+
+
+
+
+
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>] On Behalf Of
+ernesto
+Sent: 28 December 2007 16:25
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Cost-project-members at lists.berlios.de</A>
+Subject: [Cost-project-members] COSTcore 0.6-0 is out !
+
+Hi,
+
+I've just uploaded to our file repository COSTcore 0.6-0
+(<A HREF="https://developer.berlios.de/project/showfiles.php?group_id=3D7299">https://developer.berlios.de/project/showfiles.php?group_id=3D7299</A>) for
+linux and R 2.6.1. Please Mathieu can you compile for windows and send
+it to me !? Also the CVS repository is updated with this version.
+
+This is the first version to pass R check (try R CMD check COSTcore).
+The news file is attached.
+     - It has all the man pages, although still in draft;
+     - the data.frame columns of the several classes are now check and
+set up properly;
+     - validity for VAL classes is inherited from RAW classes;
+     - is.* methods were removed, in S4 one should use the method &quot;is&quot;
+to
+check for an object class.
+
+Please Mathieu, take a look at the data files and check that the sole
+dataset is correct. Also please check the man pages regarding these
+datasets and correct whatever you consider necessary.
+
+I'd like one of our English speaking colleagues to take a look at the
+man pages (attached is the pdf).
+
+Now I need your feedback from you to correct bugs and/or implement
+missing features. Whenever we feel COSTcore is stable we may release
+version 1.
+
+Best
+
+EJ
+
+
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit <A HREF="http://www.messagelabs.com/email=20">http://www.messagelabs.com/email=20</A>
+______________________________________________________________________
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000146.html">No subject
+</A></li>
+	<LI>Next message: <A HREF="000051.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#34">[ date ]</a>
+              <a href="thread.html#34">[ thread ]</a>
+              <a href="subject.html#34">[ subject ]</a>
+              <a href="author.html#34">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

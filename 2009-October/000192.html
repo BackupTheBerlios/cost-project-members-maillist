@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] stuck using spacePlot with some areas
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2009-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20stuck%20using%20spacePlot%20with%20some%20areas&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581202649701%40mail4.marlab.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000191.html">
+   <LINK REL="Next"  HREF="000193.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] stuck using spacePlot with some areas</H1>
+    <B>Alastair Pout</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20stuck%20using%20spacePlot%20with%20some%20areas&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581202649701%40mail4.marlab.ac.uk%3E"
+       TITLE="[Cost-project-members] stuck using spacePlot with some areas">A.Pout at MARLAB.AC.UK
+       </A><BR>
+    <I>Wed Oct  7 09:06:00 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000191.html">[Cost-project-members] stuck using spacePlot with some areas
+</A></li>
+        <LI>Next message: <A HREF="000193.html">[Cost-project-members] COST FINAL PAYMENT
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#192">[ date ]</a>
+              <a href="thread.html#192">[ thread ]</a>
+              <a href="subject.html#192">[ subject ]</a>
+              <a href="author.html#192">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Valerio 
+
+Yes at the moment only 27.3.a , b , c, and d are supported for area
+plots in the Baltic. 
+
+Alternatively you can plot by ICES rects. 
+
+Adding the 21 to 31 areas will have to wait for any additional funding. 
+
+ 
+
+If you really wanted to you could make up most of the 21:31 areas from
+blocks of ICES rects e.g. 
+
+ 
+
+rects &lt;-c(paste(41:37,&quot;G8&quot;,sep=&quot;&quot;),paste(41:37,&quot;G9&quot;,sep=&quot;&quot;),
+
+paste(41:38,&quot;H0&quot;,sep=&quot;&quot;),paste(41:38,&quot;H1&quot;,sep=&quot;&quot;))
+
+ 
+
+vals &lt;-rep(300,length(rects))
+
+ 
+
+spacePlot(vals,rects,sum,xlim=c(5,30),ylim=c(50,70),landmass=T,col.land=
+&quot;snow2&quot;)
+
+ 
+
+ 
+
+All the best 
+
+Alastair 
+
+ 
+
+________________________________
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>] On Behalf Of
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">valerio.bartolino at uniroma1.it</A>
+Sent: 01 October 2009 10:45
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members at lists.berlios.de</A>
+Subject: [Cost-project-members] stuck using spacePlot with some areas
+
+ 
+
+Dear list,
+I've found some problem in using the function spacePlot to visualize
+data from certain areas:
+
+spacePlot(c(34,56), c(&quot;27.3.b.23&quot;,&quot;27.3.c.22&quot;), sum, statrect=T)
+
+
+for instance the code get stuck using the following FAO areas:
+27.3.b.23
+27.3.c.22
+27.3.b,c
+
+these areas are all present in both data(faoAreas) and code.list$area,
+and they are correctly translates by the function into the corresponding
+ICES, respectively:
+22
+23
+IIIbc
+
+but they are not found in data(ICESAreaRects).
+Am I correctly interpreting the code?
+Any suggestion on solutions is welcome.
+
+Valerio
+
+
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit <A HREF="http://www.messagelabs.com/email">http://www.messagelabs.com/email</A> 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20091007/9f660033/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20091007/9f660033/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000191.html">[Cost-project-members] stuck using spacePlot with some areas
+</A></li>
+	<LI>Next message: <A HREF="000193.html">[Cost-project-members] COST FINAL PAYMENT
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#192">[ date ]</a>
+              <a href="thread.html#192">[ thread ]</a>
+              <a href="subject.html#192">[ subject ]</a>
+              <a href="author.html#192">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

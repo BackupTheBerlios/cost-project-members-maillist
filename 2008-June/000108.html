@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] size categories
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20size%20categories&In-Reply-To=%3C88431FCDD055A44BA5EEE1EC14E7E1517A0B85%40lu-mail-san.dfu.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000107.html">
+   <LINK REL="Next"  HREF="000112.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] size categories</H1>
+    <B>Henrik Degel</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20size%20categories&In-Reply-To=%3C88431FCDD055A44BA5EEE1EC14E7E1517A0B85%40lu-mail-san.dfu.local%3E"
+       TITLE="[Cost-project-members] size categories">hd at aqua.dtu.dk
+       </A><BR>
+    <I>Tue Jun  3 14:03:50 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000107.html">[Cost-project-members] size categories
+</A></li>
+        <LI>Next message: <A HREF="000112.html">[Cost-project-members] subsampling of discards on observer trips
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#108">[ date ]</a>
+              <a href="thread.html#108">[ thread ]</a>
+              <a href="subject.html#108">[ subject ]</a>
+              <a href="author.html#108">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+I fully agree with Joel in his comments about size categories. The categoriesl is simply a sampling stratification level and it is as Joel writes important that the size categories are consistant in both Commercial Sampling data and Commercial Landing data at least for each  country. Originally, the categories was defined as EU size categories, which is well defined as weight ranges (individually for each species). The big advance is that this allows you to borrow sampling data from one country to another (or from one stratum to another) when no biological information is available for a given stratum of landings and it makes it much more manageble to coordinate sampling for a given area across crountries. If a given country have its own definitions on size categories (still consistant in both CS and CL records) the raising by weight will work but it is not possible to extrapolate CL data to another country. The definition of the size categories used is indicated in variable number 11 (&quot;Size category scale&quot;) in the CL exchange format and variable number 12 in species list in CS exchange format. 
+If the size category is diferent from trip to trip (or vessel to vessel) and therefore incompatible with the aggregated landing statistics (CL) for a given metier, it has no meaning as a sampling stratification and the data shall be considered as &quot;unsorted&quot;.
+
+Concerning the remark for the sub-sample weight at the marked sampling, this was done (in FishFrame) because we always regards marked samples as a subsample of all the landings at the marked (It was very often not possible to refer the sample to a given trip). As we don't want to have individual exchange formats for marked sampling compared with e.g. Sea-sampling, we just put in the sample weight as a dummy for the catch weight.
+
+Best regards,
+Henrik     
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>] On Behalf Of <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A>
+Sent: 1. juni 2008 21:56
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members at lists.berlios.de</A>
+Subject: Re: [Cost-project-members] size categories
+
+Alastair Pout &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">A.Pout at marlab.ac.uk</A>&gt; a &#233;crit&#160;:
+
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>
+</I>&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>] On Behalf Of 
+</I>&gt;<i> David Hirst
+</I>&gt;<i> Sent: 28 May 2008 11:57
+</I>&gt;<i> To: cost member
+</I>&gt;<i> Subject: [Cost-project-members] size categories
+</I>&gt;<i>
+</I>&gt;<i> Can anyone clarify this:
+</I>&gt;<i>
+</I>&gt;<i> In Scotland (and probably other countries as well) the size category 
+</I>&gt;<i> is not nationally defined, instead it is something determined by the 
+</I>&gt;<i> individual boats. So there could be anything up to 6 size categories 
+</I>&gt;<i> on any one boat, and size 3 say would not be the same as on any other boat.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> This means that when length samples are taken it is necessary to 
+</I>&gt;<i> record the number of fish in the size category from which they are 
+</I>&gt;<i> taken. This usually means one box is taken for length  measurements, 
+</I>&gt;<i> and  the number
+</I>&gt;<i>
+</I>&gt;<i> of boxes of that size class on the boat is recorded.
+</I>&gt;<i>
+</I>&gt;<i> However, I can't see how this will be recorded in the COST format. In 
+</I>&gt;<i> the SL record there are weight and subsample weight fields, but the 
+</I>&gt;<i> comments to the weight field say that for market sampling the &quot;catch 
+</I>&gt;<i> weight is per definition equal to sample weight&quot;. What does this mean, 
+</I>&gt;<i> and how will the size category weight be recorded?
+</I>&gt;<i>
+</I>&gt;<i> Also, it would be really nice if  there was some more data available.
+</I>&gt;<i> Particularly data including discards would be helpful. There isn't any 
+</I>&gt;<i> at the moment as far as I can tell.
+</I>&gt;<i>
+</I>&gt;<i> David
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> David Hirst
+</I>&gt;<i> Norsk Regnesentral (Norwegian Computing Center) Strathweltie, Tarland, 
+</I>&gt;<i> Aboyne AB34 4YS tel/fax 01339881448 email <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">david.hirst at nr.no</A> 
+</I>&gt;<i> <A HREF="http://www.nr.no">http://www.nr.no</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Cost-project-members mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Cost-project-members at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A>
+</I>&gt;<i>
+</I>&gt;<i> ______________________________________________________________________
+</I>&gt;<i> This email has been scanned by the MessageLabs Email Security System.
+</I>&gt;<i> For more information please visit <A HREF="http://www.messagelabs.com/email">http://www.messagelabs.com/email</A> 
+</I>&gt;<i> ______________________________________________________________________
+</I>&gt;<i>
+</I>&gt;<i> Hi David
+</I>&gt;<i>
+</I>&gt;<i> Yes in the Scottish demersal fleet size classes are quite arbitrary 
+</I>&gt;<i> and not standard between vessels. So they will usually be something 
+</I>&gt;<i> like &quot;whole&quot; then &quot;small&quot; &quot;medium&quot; and &quot;large&quot; gutted. But what 
+</I>&gt;<i> constitutes a &quot;large&quot; fish for example is dependant on the trip, 
+</I>&gt;<i> vessel, species, time of year etc etc.
+</I>&gt;<i>
+</I>&gt;<i> In our market sampling procedure one box will be taken from each size 
+</I>&gt;<i> class and the lengths taken from all the fish in that box. Also the 
+</I>&gt;<i> weight of that box.
+</I>&gt;<i> Landed weight for that size class is number of boxes landed x sampled 
+</I>&gt;<i> box weight.
+</I>&gt;<i>
+</I>&gt;<i> In COST format I have translated this as, in the sl table, weight 
+</I>&gt;<i> ($wt) is my total landed weight for the size class and subsample 
+</I>&gt;<i> weight
+</I>&gt;<i> ($subSampWt) the weight of the sampled box. Commercial size category
+</I>&gt;<i> ($commCat) is 1, 2,3, .. depending on the number of size classes.
+</I>&gt;<i> But a 1 for one trip is not necessarily the same as a 1 for another 
+</I>&gt;<i> trip.
+</I>&gt;<i> And (obviously) each tr - hh record has as many sl records as there 
+</I>&gt;<i> were commercial size classes landed. Total landed weight for the 
+</I>&gt;<i> species on the trip is the sum of $wt over the sl tables.
+</I>&gt;<i>
+</I>&gt;<i> I agree &quot;For Market sampling: Catch weight is per definition equal to 
+</I>&gt;<i> Sample weight&quot; does not make any sense in our context.
+</I>&gt;<i>
+</I>&gt;<i> All the best
+</I>&gt;<i> Alastair
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Cost-project-members mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Cost-project-members at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A>
+</I>&gt;<i>
+</I>
+Dear all,
+
+per definition, size category sampling means that the characteristics of the sorting is similar for all the trips, and the sampling unit is a size category. Of course, the degree of similarity varies from one trip to another, etc... but the most important is that the size grades seen on board (CS tables) can be raised to the overall weight of the same size grades estimated from the landings statistics (CL table).
+
+When it is not the case (as is the Scottish case), the sampling strategy becomes a m&#233;tier sampling, i.e. the sampling unit is a Fishing Operation or a Fishing trip. The size category is a mean to organise the sub-sampling and help the sampler to be more precise and accurate. 
+In this case, the information estimated from the landings statistics is the weight landed for that m&#233;tier (combination of gear, target species, area and time). The information in HL is the number of fish really measured, corresponding to SubSample weight in SL. The raising factor is SL$Weight/SL$Subsample weight.
+
+Concerning the comment &quot;For market sampling: Catch weight is per definition equal to Sample weight.&quot;. I understand it's confusing, as there is the possibility to subsample in the case of m&#233;tier sampling. 
+Maybe Teunis could give us his thoughts about this. I would think it's just a problem of label.
+
+In all cases, summing over the HL$No at length should always give us the number of fish sampled.
+
+I also reiterate my demand to get more datasets available from ALL the institutes involved in COST. this is becoming URGENT and must be given highest priority.
+
+Best regards
+
+Joel
+
+
+
+
+
+
+_______________________________________________
+Cost-project-members mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Cost-project-members at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000107.html">[Cost-project-members] size categories
+</A></li>
+	<LI>Next message: <A HREF="000112.html">[Cost-project-members] subsampling of discards on observer trips
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#108">[ date ]</a>
+              <a href="thread.html#108">[ thread ]</a>
+              <a href="subject.html#108">[ subject ]</a>
+              <a href="author.html#108">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

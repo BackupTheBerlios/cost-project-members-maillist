@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] Exchange format updates
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Exchange%20format%20updates&In-Reply-To=%3C478B7987.1030506%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000044.html">
+   <LINK REL="Next"  HREF="000046.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] Exchange format updates</H1>
+    <B>Joel VIGNEAU</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Exchange%20format%20updates&In-Reply-To=%3C478B7987.1030506%40ifremer.fr%3E"
+       TITLE="[Cost-project-members] Exchange format updates">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Mon Jan 14 16:02:31 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000044.html">[Cost-project-members] Exchange format updates
+</A></li>
+        <LI>Next message: <A HREF="000046.html">[Cost-project-members] Exchange format updates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#45">[ date ]</a>
+              <a href="thread.html#45">[ thread ]</a>
+              <a href="subject.html#45">[ subject ]</a>
+              <a href="author.html#45">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Teunis Jansen a &#233;crit :
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi all,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> A little question has raised while I was trying to implement a &quot;Volume
+</I>&gt;&gt;<i> of DIS/LAN per haul/trip&quot; plotting procedure. What is the indicator in
+</I>&gt;&gt;<i> CS tables that tells us if an FO has been sampled or not?
+</I>&gt;&gt;<i> The fact that this FO is in SL table might be one, but it implies that
+</I>&gt;&gt;<i> SL is an exhaustive description of all sampled FOs in HH table.
+</I>&gt;&gt;<i> The problem is that I'm working with a 'sole' dataset, so sampled FOs
+</I>&gt;&gt;<i> may not be exhaustively described in SL (zero-values not recorded).
+</I>&gt;&gt;<i> To my understanding ,the current situation requires that the datasets
+</I>&gt;&gt;<i> comprise all species to assess which FO has been sampled or not.
+</I>&gt;&gt;<i> Would it be better to add a field 'FO sampled' in HH table?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Best
+</I>&gt;&gt;<i> Mathieu
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Cost-project-members mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Cost-project-members at lists.berlios.de</A> 
+</I>&gt;&gt;<i> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Cost-project-members at lists.berlios.de</A>&gt;
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ------------------------------------------------------------------------
+</I>&gt;&gt;<i> ---------------------------------
+</I>&gt;&gt;<i> Dear Mathieu
+</I>&gt;&gt;<i> This information is found in the &quot;sampling type&quot; field. The sampling
+</I>&gt;&gt;<i> type is the data collection protocol used. What you are after is:
+</I>&gt;&gt;<i> &quot;S&quot; = Sea sampling
+</I>&gt;&gt;<i> versus
+</I>&gt;&gt;<i> &quot;P&quot; = partial sea sampling
+</I>&gt;&gt;<i> In the descriptions of the sampling types in the data exchange format
+</I>&gt;&gt;<i> doc; you can read that &quot;S&quot;-data has full species distribution while &quot;P&quot;
+</I>&gt;&gt;<i> only samples few specific species in the catch. So when SL data are
+</I>&gt;&gt;<i> present but without any sole-records, then you know it is a 0-catch when
+</I>&gt;&gt;<i> sampling type is &quot;S&quot;.
+</I>&gt;&gt;<i> Best regards
+</I>&gt;&gt;<i> Teunis
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Dear Teunis,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I see your point concerning &quot;S&quot; and &quot;P&quot; which are very relevant and 
+</I>&gt;&gt;<i> refer to the sampling protocol applied to the sampled trip. For the 
+</I>&gt;&gt;<i> last call for data launched by STECF last year we have provided only 
+</I>&gt;&gt;<i> &quot;S&quot; information because the &quot;P&quot; is hardly workable. Nevertheless, 
+</I>&gt;&gt;<i> your statement only works if the non-sampled FOs are absent from the 
+</I>&gt;&gt;<i> database, which is not the case. The observers take the information 
+</I>&gt;&gt;<i> from every FOs on effort and location and even on the estimated 
+</I>&gt;&gt;<i> weight of every landed species. When raising by an auxiliary 
+</I>&gt;&gt;<i> variable, you can then easily raise to the trip
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> When some information is given for all FOs the issue is about 
+</I>&gt;&gt;<i> discriminating 0-values from non-sampled FOs without having to 
+</I>&gt;&gt;<i> address the whole database. I explain: here in Ifremer, we have 
+</I>&gt;&gt;<i> access to the whole database (I guess it is the same in FF), so we 
+</I>&gt;&gt;<i> count the sampled FOs by looking at FOs where any species have been 
+</I>&gt;&gt;<i> measured and we subset for one particular species in a second step. 
+</I>&gt;&gt;<i> By doing so, we don't have any problems with 0-values, we make the 
+</I>&gt;&gt;<i> sum and we divide by the total number of sampled FO calculated before 
+</I>&gt;&gt;<i> subsetting. For the variance, you have to pay attention and include 
+</I>&gt;&gt;<i> as many (0 - mean)^2 as necessary but it works.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> For COST, do we want the user to provide the full dataset each time 
+</I>&gt;&gt;<i> one wants to raise discards or do we want to let the user provide 
+</I>&gt;&gt;<i> only a subset with one species? Do we want the user to remove all the 
+</I>&gt;&gt;<i> information recorded for the non-sampled FOs ? If we do so, how do we 
+</I>&gt;&gt;<i> count the total effort of the trip (hours, days) or the total 
+</I>&gt;&gt;<i> landings of that trip (landings of the targeted species, one 
+</I>&gt;&gt;<i> particular species or whole landings) for raising by an auxiliary 
+</I>&gt;&gt;<i> variable? Moreover, the DEF today allows to record any information we 
+</I>&gt;&gt;<i> want on non-sampled FOs. It would be a pity not to use it.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The simple solution would be to add a field &quot;FO Sampled&quot; Y/N in HH table.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The fact that we have the information on the total number of FOs in a 
+</I>&gt;&gt;<i> trip in TR table allows to control if we have as many records in HH 
+</I>&gt;&gt;<i> and then raise by any auxiliary variable available. If not, it means 
+</I>&gt;&gt;<i> that most of the auxiliary variable are unavailable for raising.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Best regards
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Joel &amp; Mathieu
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hi All
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Could fishing validity $foVal in the hh not be used for this purpose?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I'm not sure what its present purpose is but we could define it as 
+</I>&gt;&gt;<i> any haul which contributes to effort but for which there are no 
+</I>&gt;&gt;<i> subsequent sl hl records.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> All the best
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Alastair
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i> **Hi Alastair,
+</I>&gt;<i>
+</I>&gt;<i> This is a very good point.
+</I>&gt;<i>
+</I>&gt;<i> There could be 3 modalities for this field
+</I>&gt;<i> I : Invalid
+</I>&gt;<i> F : Full Validity (FO sampled)
+</I>&gt;<i> P : Partial Validity  (FO not sampled)
+</I>&gt;<i>
+</I>&gt;<i> Best regards
+</I>&gt;<i>
+</I>&gt;<i> Joel
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i> Dear All
+</I>&gt;<i> (COST &amp; DIFRES dev. group)
+</I>&gt;<i>  
+</I>&gt;<i> Henrik and I have discussed this and we agree that there is a problem 
+</I>&gt;<i> when you have registered all information on a station except the 
+</I>&gt;<i> catch. If you have total catch in weight per species, then there is no 
+</I>&gt;<i> problem because then you just set SL.validityCode to 4.
+</I>&gt;<i>  
+</I>&gt;<i> So we agree to put in a new field on HH. It should not be called 
+</I>&gt;<i> &quot;Sampled&quot;, because then it might be confused with the SL.validityCode, 
+</I>&gt;<i> that tells us if the catch has been sampled for length distribution. 
+</I>&gt;<i> We suggest &quot;HH.CatchRegistration&quot;. Codes for this field could be: &quot;All 
+</I>&gt;<i> species&quot;, &quot;Subset of all species&quot; and &quot;No species&quot;.
+</I>&gt;<i>  
+</I>&gt;<i> The suggested solution of using the HH.FishingValidity violates 
+</I>&gt;<i> database design rules, because it is mixing of two different 
+</I>&gt;<i> information in one field. HH.FishingValidity is used when a haul is 
+</I>&gt;<i> invalid an example could be if the trawl is lost or so damaged, that 
+</I>&gt;<i> the catch is not representative.
+</I>&gt;<i>  
+</I>&gt;<i> We will send out an updated version of the exchange format document if 
+</I>&gt;<i> there is agreement on this solution. The update will also include the 
+</I>&gt;<i> reordering of key fields on CA (see another mailing-thread).
+</I>&gt;<i>  
+</I>&gt;<i> Best regards
+</I>&gt;<i> Henrik and Teunis
+</I>&gt;<i>  
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Cost-project-members mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Cost-project-members at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A>
+</I>&gt;<i>   
+</I>Dear Teunis,
+
+I must say that now I'm confused!
+
+Let's see the entire problem.
+
+There are trips where the protocole requires to sample all (commercial) 
+species (Sampling type =&quot;S&quot;) and other trips where the protocole 
+requires to sample a fixed list of species (Sampling type = &quot;P&quot;)
+
+Independently from the point above, during the sampling process, there 
+are FO not valid (gear damaged, ...) : HH.FishingValidity = &quot;I&quot; and 
+those which are valid HH.FishingValidity = &quot;V&quot;
+
+when FOs are valid, there are some which are sampled for length 
+(SL.Validity code = 1) and those where the information on the species 
+landed are taken but no length information (SL.Validity code = 4).
+
+What is missing is only those FOs where we have the information on 
+duration and location but no information on species. Of course, this is 
+linked to HH and you prefer adding a field rather than expanding the 
+FishingValidity coding. Although I would say that the Validity code in 
+SL seems to be more flexible/rich than the validity code in HH, I don't 
+understand the meaning of the added field with regards to the issue.
+
+The proposal is to add HH.CatchRegistration with possible &quot;All species&quot;, 
+&quot;Subset of all species&quot; or &quot;No species&quot;.
+All or a subset of species is already specified in Sampling type, linked 
+to the trip. I would understand coding like &quot;FO characteristics only&quot; or 
+&quot;Species composition&quot;. In this case, I would also prefer 
+HH.RegistrationCode with coding = 1 or 2
+then the SL.ValidityCode completes the view with existing length 
+composition or not
+
+I still prefer the simple solution expanding the existing HH code. I 
+understand the distortion of the database rules with regards to the 
+naming of this variable. Instead of HH.FishingValidity, why not put 
+HH.ValidityCode exactly like in SL with     1 = Invalid,
+    2 = valid with FO characteristics only
+    3 = valid with species composition
+
+It is not more two different information than can be &quot;None&quot; &quot;partial&quot; 
+&quot;complete&quot;
+
+Best regards
+
+Joel
+
+
+
+
+-- 
+
+/*Jo&#235;l VIGNEAU*/
+
+Laboratoire &quot;Ressources Halieutiques &lt;<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>&gt;&quot;
+IFREMER &lt;<A HREF="http://www.ifremer.fr/">http://www.ifremer.fr/</A>&gt;
+14 520 Port-en-Bessin
+
+T&#233;l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A>&gt;
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20080114/fd831bad/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20080114/fd831bad/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000044.html">[Cost-project-members] Exchange format updates
+</A></li>
+	<LI>Next message: <A HREF="000046.html">[Cost-project-members] Exchange format updates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#45">[ date ]</a>
+              <a href="thread.html#45">[ thread ]</a>
+              <a href="subject.html#45">[ subject ]</a>
+              <a href="author.html#45">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] COSTcore 0.6-0 is out !
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20COSTcore%200.6-0%20is%20out%20%21&In-Reply-To=%3C47820C11.9020901%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000033.html">
+   <LINK REL="Next"  HREF="000038.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] COSTcore 0.6-0 is out !</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20COSTcore%200.6-0%20is%20out%20%21&In-Reply-To=%3C47820C11.9020901%40ipimar.pt%3E"
+       TITLE="[Cost-project-members] COSTcore 0.6-0 is out !">ernesto at ipimar.pt
+       </A><BR>
+    <I>Mon Jan  7 12:25:05 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000033.html">[Cost-project-members] COSTcore 0.6-0 is out !
+</A></li>
+        <LI>Next message: <A HREF="000038.html">[Cost-project-members] COSTcore 0.6-0 is out !
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#35">[ date ]</a>
+              <a href="thread.html#35">[ thread ]</a>
+              <a href="subject.html#35">[ subject ]</a>
+              <a href="author.html#35">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Alastair Pout wrote:
+&gt;<i> Hi Ernesto, Joel, Mathieu and all.  
+</I>&gt;<i>
+</I>&gt;<i> 0.6 looks really good and the documentation is a big plus in seeing
+</I>&gt;<i> everything you have been up to!
+</I>&gt;<i> I'm happy to look at the English if you don't mind a bit of rewording
+</I>&gt;<i> here and there.  
+</I>&gt;<i>
+</I>&gt;<i> Just one thing about the cost core, setting up the non numerics as
+</I>&gt;<i> factors might cause a few problems down the line. Had a quick look at
+</I>&gt;<i> your code and I don't think they are used as factors anywhere, and (as I
+</I>&gt;<i> am sure you know) there are a number of things about factors that might
+</I>&gt;<i> not be desirable particularly for those not too familiar with R
+</I>&gt;<i> 1.	for virtually anything that needs to be done to manipulate data
+</I>&gt;<i> all factors will need to be changed using as.character(xx) because
+</I>&gt;<i> factors are stored as a list of character names (the levels of the
+</I>&gt;<i> factor) and as numeric values and if not specified the numeric value is
+</I>&gt;<i> used.  
+</I>&gt;<i> 2.	a unique set of levels for each factor is created with the
+</I>&gt;<i> creation of each data frame, which will have to be delt with if data
+</I>&gt;<i> frames are merged at any point. And there are little pitfalls like the
+</I>&gt;<i> name of a variable being retained in the levels list even if the values
+</I>&gt;<i> of a particular factor are all removed. 
+</I>&gt;<i> 3.	ordering of levels is alphabetic and so does not follow the
+</I>&gt;<i> sequential ordering in a data frame, again this a potential trap that
+</I>&gt;<i> has to be appreciated in any indexing tasks. 
+</I>&gt;<i> 4.	Down the line factors may need to be defined for modelling.  
+</I>&gt;<i>
+</I>&gt;<i> Could I suggest we stick to characters and numerics for the two classes
+</I>&gt;<i> for variables in the data sets? 
+</I>&gt;<i> &gt;From the validation point this simplifies things too in that all
+</I>&gt;<i> character variables haveing a list of character stings for permissible
+</I>&gt;<i> variables and all numerics being either real or integer and haveing a
+</I>&gt;<i> specified range. 
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I have the &quot;check.fileds&quot; function more or less ready, and this can now
+</I>&gt;<i> save its output to file. 
+</I>&gt;<i> Also (so that nobody else spends time doing this)  I have created list
+</I>&gt;<i> objects for all the variables in the fish frame tables ce cl and the cs.
+</I>&gt;<i> For characters (factors) this is Teunis's  &quot;code lists&quot;, and for
+</I>&gt;<i> numerics it's the permissible ranges. 
+</I>&gt;<i>
+</I>&gt;<i> e.g.
+</I>&gt;<i> names(code.list)
+</I>&gt;<i>  [1] &quot;landCtry&quot;   &quot;vslFlgCtry&quot; &quot;area&quot;       &quot;rect&quot;       &quot;foCatNat&quot;  
+</I>&gt;<i>  [6] &quot;foCatEu5&quot;   &quot;foCatEu6&quot;   &quot;spp&quot;        &quot;landCat&quot;    &quot;commCatScl&quot;
+</I>&gt;<i> [11] &quot;sampType&quot;   &quot;proj&quot;       &quot;sampCtry&quot;   &quot;sampMeth&quot;   &quot;foVal&quot;     
+</I>&gt;<i> [16] &quot;aggLev&quot;     &quot;date&quot;       &quot;time&quot;       &quot;catchCat&quot;   &quot;subSampCat&quot;
+</I>&gt;<i> [21] &quot;lenCode&quot;    &quot;sex&quot;        &quot;stock&quot;      &quot;plusGrp&quot;    &quot;otoSide&quot;   
+</I>&gt;<i> [26] &quot;matScale&quot;   &quot;gear&quot;       &quot;valCode&quot;   
+</I>&gt;<i>
+</I>&gt;<i> head(code.list$spp)
+</I>&gt;<i>
+</I>&gt;<i>                 species   tsn       nodc ices
+</I>&gt;<i> 1  Aphanothece saxicola   643 0302010405  001
+</I>&gt;<i> 2  Aphanothece stagnina   644 0302010406  002
+</I>&gt;<i> 3      Asarum hartwegii 18356 3206010205  003
+</I>&gt;<i> 4         Nuphar luteum 18372 3207010301  004
+</I>&gt;<i> 5      Penstemon dolius 33885 3270035536  005
+</I>&gt;<i> 6 Penstemon linarioides 33937 3270035570  006
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> This potentially allows us to validate any data against this and there
+</I>&gt;<i> is the potential to add to the code lists if we feel in time that COST
+</I>&gt;<i> needs to include more than is currently allowed by fish frame. 
+</I>&gt;<i>
+</I>&gt;<i> Also have made data frame lifted from the FF document which is just all
+</I>&gt;<i> the variables, the info on them and indicator variables for which tables
+</I>&gt;<i> they occur in.  
+</I>&gt;<i> e.g. 
+</I>&gt;<i>
+</I>&gt;<i>     variable           description type cetab cltab trtab hhtab sltab
+</I>&gt;<i> hltab catab req    checks
+</I>&gt;<i> 1 vslFlgCtry Vessel Flag Country *    s     1     1     1     1     1
+</I>&gt;<i> 1     1   M Code list
+</I>&gt;<i>                                                   Comments
+</I>&gt;<i> ISO 3166-1 alpha-3 codes. The flag country of the vessel
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> The problem I will have is getting this all onto the CVS site! Might
+</I>&gt;<i> need some help there. 
+</I>&gt;<i>
+</I>&gt;<i> #---------------------------------
+</I>&gt;<i>
+</I>&gt;<i> For the raw data - validated data stage 
+</I>&gt;<i> Don't know what anybody else thinks but seems to me all we need to do is
+</I>&gt;<i> Read in (or create) data in R in FF exchange format = ceData-class
+</I>&gt;<i> clData-calss
+</I>&gt;<i>
+</I>&gt;<i> Run the various validation functions 
+</I>&gt;<i>
+</I>&gt;<i> Ernesto's check methods
+</I>&gt;<i> checkCLmns
+</I>&gt;<i> 	check
+</I>&gt;<i>
+</I>&gt;<i> My check fields 
+</I>&gt;<i>
+</I>&gt;<i> Mathieu's outlier identifier
+</I>&gt;<i>
+</I>&gt;<i> And if all those are passed OK then the data is class validated  
+</I>&gt;<i>
+</I>&gt;<i> If we wanted to keep things tight we could have it that these functions
+</I>&gt;<i> returned data passed to them that was ok and didn't otherwise. 
+</I>&gt;<i>
+</I>&gt;<i> It might be a bit late to suggest it now but the simplest way to record
+</I>&gt;<i> the validation status is to have a slot called &quot;status&quot; on the ce, cl
+</I>&gt;<i> and cs data (or used description) which is set at either &quot;raw&quot; or
+</I>&gt;<i> &quot;validated&quot;. It would be raw while the validation functions are running
+</I>&gt;<i> and validated when these checks are successful. Then any function can
+</I>&gt;<i> have a line at the beginning which checks 
+</I>&gt;<i>
+</I>&gt;<i> if(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">costobj at status</A>==&quot;raw&quot; ) 
+</I>&gt;<i> {&quot;warning this is not validated&quot;...  and we may or may not allow the
+</I>&gt;<i> function to run} 
+</I>&gt;<i>
+</I>&gt;<i> if(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">costobj at status</A>==&quot;validated&quot; ) 
+</I>&gt;<i> {
+</I>&gt;<i> Does whatever the function does 
+</I>&gt;<i> }
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> All the best
+</I>&gt;<i> Alastair
+</I>[SNIP]
+
+Hi Alastair,
+
+I'd appreciate very much if you could check the help files. I still did 
+not review them so please wait for the next version before waisting your 
+time.
+
+WRT factors I agree that it maybe tricky for those not familiar with R 
+but it's also true that it may help a lot to have properly formated 
+fields. Anyway if the other developers agree I will change factors to 
+characters.
+
+The check.fields looks very good and the approach you're taken looks 
+very flexible for future extensions.
+
+Note that the &quot;status&quot; feature you're requesting is implemented with the 
+different classes. When check.fields and the outliers detection methods 
+are executed and the dataset is validated, you should call ceDataVal(), 
+clDataVal() or csDataVal() to create the new objects of those classes. 
+Another strategy is to embed those methods inside the creator functions, 
+which, by the way, dispatch on ceData, clData or csData objects.
+
+WRT the validation functions they don't need to be called directly. 
+Every time one creates an object of RAW classes those functions are 
+executed and if the object is malformed it will return an error and the 
+object is not created. This happens every time one changes an object. In 
+other words, when someone calls &quot;new&quot; to create an object of any S4 
+class, the validity procedure will be called internally by R to check 
+that the data provided is in agreement with the class definition.
+
+So to make it clearer (I hope):
+
+=&gt; CREATION OF RAW OBJECTS
+
+OPTION 1
+1) Provide a comma separated file with data following FF5.
+2) Read the file into R with csData(&quot;path_to_my_tr_file&quot;, 
+&quot;path_to_my_hh_file&quot;, etc), clData(&quot;path_to_my_file&quot;) or 
+ceData(&quot;path_to_my_file&quot;). This procedure will execute the validation 
+functions and if the data is ok it will create objects of classes 
+csData, clData or ceData.
+
+OPTION 2
+1) Read data into R with one of the R functions like read.table, or read 
+data from a database using RDBI or RODBC.
+2) Run the creator functions csData(mytr_dataframe, myhh_dataframe, 
+etc), clData(mycl_dataframe) or ceData(myce_dataframe). This procedure 
+will execute the validation functions and if the data is ok it will 
+create objects of classes csData, clData or ceData.
+
+=&gt; CREATION OF VALIDATED OBJECTS
+
+OPTION 1
+1) Execute check.fields on RAW objects and output a data.frame (or 
+several in the case of csData).
+2) Execute outliers detection methods on the previous data.frame and 
+output a new data.frame (or several in the case of csData).
+3) Call the creator function with the data.frame created on 2). This 
+procedure will execute the validation functions and if the data is ok it 
+will create objects of classes csDataVal, clDataVal or ceDataVal.
+
+OPTION 2
+1) Develop the creator functions to embed the check.fields and outliers 
+detection methods.
+2) Call the creator function with the RAW objects. This procedure will 
+execute check.fields, the outliers detection methods and the validation 
+functions. If the data is ok it will create objects of classes 
+csDataVal, clDataVal or ceDataVal.
+
+Hope it helped.
+
+Best
+
+EJ
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000033.html">[Cost-project-members] COSTcore 0.6-0 is out !
+</A></li>
+	<LI>Next message: <A HREF="000038.html">[Cost-project-members] COSTcore 0.6-0 is out !
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#35">[ date ]</a>
+              <a href="thread.html#35">[ thread ]</a>
+              <a href="subject.html#35">[ subject ]</a>
+              <a href="author.html#35">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

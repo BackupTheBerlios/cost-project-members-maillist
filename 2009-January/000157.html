@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] Nit picky things about the $foCatEu5	Nantes(DCR) matrix level 5 codes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Nit%20picky%20things%20about%20the%20%24foCatEu5%0A%09Nantes%28DCR%29%20matrix%20level%205%20codes&In-Reply-To=%3C88431FCDD055A44BA5EEE1EC14E7E151F17DED%40lu-mail-san.dfu.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000156.html">
+   <LINK REL="Next"  HREF="000158.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] Nit picky things about the $foCatEu5	Nantes(DCR) matrix level 5 codes</H1>
+    <B>Henrik Degel</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Nit%20picky%20things%20about%20the%20%24foCatEu5%0A%09Nantes%28DCR%29%20matrix%20level%205%20codes&In-Reply-To=%3C88431FCDD055A44BA5EEE1EC14E7E151F17DED%40lu-mail-san.dfu.local%3E"
+       TITLE="[Cost-project-members] Nit picky things about the $foCatEu5	Nantes(DCR) matrix level 5 codes">hd at aqua.dtu.dk
+       </A><BR>
+    <I>Tue Jan 13 11:07:57 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000156.html">[Cost-project-members] OT: news about R
+</A></li>
+        <LI>Next message: <A HREF="000158.html">[Cost-project-members] First comprehensive examples of COST use
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#157">[ date ]</a>
+              <a href="thread.html#157">[ thread ]</a>
+              <a href="subject.html#157">[ subject ]</a>
+              <a href="author.html#157">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear Alastair and All,
+
+Sorry, that I am hopeless late with this comment but I hope that it is still relevant.
+
+I understand your concern about the implication for the programming not having a fixed length for the fishing Activity codes. On the other hand, we have tried to follow already established coding systems (most often defined in the FAO reg&#237;) throughout the whole exchange format in order not to ad more confusion for the user into an area which already have too many parallel systems. I find this important and suggest that we stick to the FAO codes strictly and accept that the gear codes can be both 2 and 3 letter codes if it can be handled by the programmers with only a minor extra programming. If not, I agree in the format suggested by Alastair.
+
+I have discussed the issue with our FishFrame programmers and they do not think that following the FAO codes strictly will create big problems (even though the same procedure as Alastair explain is used at the moment for deriving level 5 from level 6 by cutting of the first 7 letters). So, concerning FF we don't see big problems following the FAO codes strictly.
+
+If the general opinion from COST is that this will create too big problems, we will accept that and suggest that we chose the solution suggested by Alastair: PS__SPF 
+
+ 
+
+Concerning 2, I agree with Alastair that the Nantes matrix must be a subset of the complete FAO list.
+
+ 
+
+We will correct the descriptions in the Exchange Format description and circulate the updated version as soon as Teunis is back next week.
+
+ 
+
+Best regards,
+
+Henrik
+
+
+________________________________
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>] On Behalf Of Alastair Pout
+Sent: 21. november 2008 12:35
+To: cost member
+Subject: [Cost-project-members] Nit picky things about the $foCatEu5 Nantes(DCR) matrix level 5 codes
+
+
+
+Dear Teunis, Henrik, Lisa, Joel, Mathieu, Ernesto and All 
+
+ 
+
+Nit picky things about the $foCatEu5 Nantes (DCR) matrix level 5 codes .....
+
+ 
+
+1. Can we set up an accepted protocol for the combination of level 4 and level 5 codes 
+
+These have the form XXX_YYY which is fine when the codes have 3 letters. 
+
+With the 2 letter codes e.g. purse seine PS there are a number of possibilities. 
+
+ 
+
+*	this becomes PS_ and so there would be for example PS__SPF for purse seine small pelagic fish, a double underscore but still 7 characters long.   
+
+ 
+
+*	this stays as PS and there would be PS_SPF but this is only 6 characters 
+
+ 
+
+*	this is PS_SPF_ which is what is in the COSTcore code list at the moment because PS_SPF_0_0_0 etc is currently in the FISHFRAME code list as a level 6 and level 5's are defined as the first 7 characters from the level 6's, which gives PS_SPF_ 
+
+ 
+
+My preference would be to standardise on the PS__SPF form, 
+
+This I think is much less problematical for manipulating when programming as it means that all level 5 codes are 7 characters and allows the gear and target assemblage to be split (e.g. using the R functions substr or strsplit without having to worry that you get &quot;PF_&quot; as a target assemblage). 
+
+ 
+
+What does anybody else think?  
+
+ 
+
+ 
+
+2. Gear codes: Are we all happy that the gear codes can be any from 
+
+ 
+
+<A HREF="ftp://ftp.fao.org/FI/DOCUMENT/cwp/handbook/annex/AnnexM1fishinggear.pdf">ftp://ftp.fao.org/FI/DOCUMENT/cwp/handbook/annex/AnnexM1fishinggear.pdf</A>
+
+ 
+
+and thus level 5 codes (&amp; level 6 codes)  can be made form these? 
+
+ 
+
+Or are we adding level 5 (and level 6) codes to the Nantes matrix in doing this?  
+
+ 
+
+e.g. there is no OT code in the level 6's in the 26 feb 2008 def document but is OT_MPD (or OT__MPD or OT_MPT_) a valid Nantes matrix level 5 code? 
+
+ 
+
+Seems to me it should be but I think we run the risk of proliferating the number of possible metiers.   
+
+ 
+
+And the other thing is that $gear is no longer in the FISHFRAME/COST data exchange format. 
+
+Attached is the list of codes we have at FRS for the Nantes matrix but nobody here seems to know if this is definitive.  
+
+ 
+
+3. And for reference, in the FISHFRAME 5.0 COST data exchange format document in the 26 Feb 2008 version, as Mathieu noticed the other day, some of the descriptions are wrong in the level 6's, which is what was used for the current code list in COSTcore
+
+ 
+
+e.g. page 43 
+
+ 
+
+FPO_CRU  - Crustaceans bottom otter trawl 
+
+ 
+
+FYK_CRU  - Crustaceans bottom otter trawl
+
+ 
+
+FYK_MPD - mixed pelagic and demersal fish - bottom otter trawl 
+
+ 
+
+These should be pots and fyke nets and I will correct these in the COSTcore code.list 
+
+ 
+
+All the best
+
+Alastair 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20090113/fdaca9dc/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20090113/fdaca9dc/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000156.html">[Cost-project-members] OT: news about R
+</A></li>
+	<LI>Next message: <A HREF="000158.html">[Cost-project-members] First comprehensive examples of COST use
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#157">[ date ]</a>
+              <a href="thread.html#157">[ thread ]</a>
+              <a href="subject.html#157">[ subject ]</a>
+              <a href="author.html#157">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

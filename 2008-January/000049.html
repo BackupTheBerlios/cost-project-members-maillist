@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] Exchange format updates
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Exchange%20format%20updates&In-Reply-To=%3C88431FCDD055A44BA5EEE1EC14E7E1512B644A%40lu-mail-san.dfu.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000047.html">
+   <LINK REL="Next"  HREF="000052.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] Exchange format updates</H1>
+    <B>Teunis Jansen</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Exchange%20format%20updates&In-Reply-To=%3C88431FCDD055A44BA5EEE1EC14E7E1512B644A%40lu-mail-san.dfu.local%3E"
+       TITLE="[Cost-project-members] Exchange format updates">tej at difres.dk
+       </A><BR>
+    <I>Fri Jan 18 11:30:02 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000047.html">[Cost-project-members] Exchange format updates
+</A></li>
+        <LI>Next message: <A HREF="000052.html">[Cost-project-members] Exchange format updates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#49">[ date ]</a>
+              <a href="thread.html#49">[ thread ]</a>
+              <a href="subject.html#49">[ subject ]</a>
+              <a href="author.html#49">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>		
+		
+
+			Hi all, 
+			
+			A little question has raised while I was trying to implement a &quot;Volume 
+			of DIS/LAN per haul/trip&quot; plotting procedure. What is the indicator in 
+			CS tables that tells us if an FO has been sampled or not? 
+			The fact that this FO is in SL table might be one, but it implies that 
+			SL is an exhaustive description of all sampled FOs in HH table. 
+			The problem is that I'm working with a 'sole' dataset, so sampled FOs 
+			may not be exhaustively described in SL (zero-values not recorded). 
+			To my understanding ,the current situation requires that the datasets 
+			comprise all species to assess which FO has been sampled or not. 
+			Would it be better to add a field 'FO sampled' in HH table? 
+			
+			
+			Best 
+			Mathieu 
+			_______________________________________________ 
+			Cost-project-members mailing list 
+			<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Cost-project-members at lists.berlios.de</A> 
+			<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A> 
+			
+			------------------------------------------------------------------------ 
+			--------------------------------- 
+			Dear Mathieu 
+			This information is found in the &quot;sampling type&quot; field. The sampling 
+			type is the data collection protocol used. What you are after is: 
+			&quot;S&quot; = Sea sampling 
+			versus 
+			&quot;P&quot; = partial sea sampling 
+			In the descriptions of the sampling types in the data exchange format 
+			doc; you can read that &quot;S&quot;-data has full species distribution while &quot;P&quot; 
+			only samples few specific species in the catch. So when SL data are 
+			present but without any sole-records, then you know it is a 0-catch when 
+			sampling type is &quot;S&quot;. 
+			Best regards 
+			Teunis 
+
+			
+
+			Dear Teunis,
+			
+			I see your point concerning &quot;S&quot; and &quot;P&quot; which are very relevant and refer to the sampling protocol applied to the sampled trip. For the last call for data launched by STECF last year we have provided only &quot;S&quot; information because the &quot;P&quot; is hardly workable. Nevertheless, your statement only works if the non-sampled FOs are absent from the database, which is not the case. The observers take the information from every FOs on effort and location and even on the estimated weight of every landed species. When raising by an auxiliary variable, you can then easily raise to the trip
+			
+			When some information is given for all FOs the issue is about discriminating 0-values from non-sampled FOs without having to address the whole database. I explain: here in Ifremer, we have access to the whole database (I guess it is the same in FF), so we count the sampled FOs by looking at FOs where any species have been measured and we subset for one particular species in a second step. By doing so, we don't have any problems with 0-values, we make the sum and we divide by the total number of sampled FO calculated before subsetting. For the variance, you have to pay attention and include as many (0 - mean)^2 as necessary but it works.
+			
+			For COST, do we want the user to provide the full dataset each time one wants to raise discards or do we want to let the user provide only a subset with one species? Do we want the user to remove all the information recorded for the non-sampled FOs ? If we do so, how do we count the total effort of the trip (hours, days) or the total landings of that trip (landings of the targeted species, one particular species or whole landings) for raising by an auxiliary variable? Moreover, the DEF today allows to record any information we want on non-sampled FOs. It would be a pity not to use it.
+			
+			The simple solution would be to add a field &quot;FO Sampled&quot; Y/N in HH table.
+			
+			The fact that we have the information on the total number of FOs in a trip in TR table allows to control if we have as many records in HH and then raise by any auxiliary variable available. If not, it means that most of the auxiliary variable are unavailable for raising.
+			
+			Best regards
+			
+			Joel &amp; Mathieu
+			
+			
+			Hi All 
+
+			Could fishing validity $foVal in the hh not be used for this purpose? 
+
+			I'm not sure what its present purpose is but we could define it as any haul which contributes to effort but for which there are no subsequent sl hl records. 
+
+			All the best
+
+			Alastair
+
+			
+
+			
+			
+
+		Hi Alastair,
+		
+		This is a very good point.
+		
+		There could be 3 modalities for this field
+		I : Invalid
+		F : Full Validity (FO sampled)
+		P : Partial Validity  (FO not sampled) 
+		
+		Best regards
+		
+		Joel
+		
+
+		 
+
+		 
+		Dear All 
+		(COST &amp; DIFRES dev. group)
+		 
+		Henrik and I have discussed this and we agree that there is a problem when you have registered all information on a station except the catch. If you have total catch in weight per species, then there is no problem because then you just set SL.validityCode to 4.
+		
+		 
+		So we agree to put in a new field on HH. It should not be called &quot;Sampled&quot;, because then it might be confused with the SL.validityCode, that tells us if the catch has been sampled for length distribution. We suggest &quot;HH.CatchRegistration&quot;. Codes for this field could be: &quot;All species&quot;, &quot;Subset of all species&quot; and &quot;No species&quot;.
+		 
+		The suggested solution of using the HH.FishingValidity violates database design rules, because it is mixing of two different information in one field. HH.FishingValidity is used when a haul is invalid an example could be if the trawl is lost or so damaged, that the catch is not representative.
+		 
+		We will send out an updated version of the exchange format document if there is agreement on this solution. The update will also include the reordering of key fields on CA (see another mailing-thread).
+		 
+		Best regards
+		Henrik and Teunis
+		 
+		
+________________________________
+
+
+		_______________________________________________
+		Cost-project-members mailing list
+		<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Cost-project-members at lists.berlios.de</A>
+		<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A>
+		  
+
+	Dear Teunis,
+	
+	I must say that now I'm confused!
+	
+	Let's see the entire problem.
+	
+	There are trips where the protocole requires to sample all (commercial) species (Sampling type =&quot;S&quot;) and other trips where the protocole requires to sample a fixed list of species (Sampling type = &quot;P&quot;)
+	
+	Independently from the point above, during the sampling process, there are FO not valid (gear damaged, ...) : HH.FishingValidity = &quot;I&quot; and those which are valid HH.FishingValidity = &quot;V&quot;
+	
+	when FOs are valid, there are some which are sampled for length (SL.Validity code = 1) and those where the information on the species landed are taken but no length information (SL.Validity code = 4).
+	
+	What is missing is only those FOs where we have the information on duration and location but no information on species. Of course, this is linked to HH and you prefer adding a field rather than expanding the FishingValidity coding. Although I would say that the Validity code in SL seems to be more flexible/rich than the validity code in HH, I don't understand the meaning of the added field with regards to the issue. 
+	
+	The proposal is to add HH.CatchRegistration with possible &quot;All species&quot;, &quot;Subset of all species&quot; or &quot;No species&quot;.
+	All or a subset of species is already specified in Sampling type, linked to the trip. I would understand coding like &quot;FO characteristics only&quot; or &quot;Species composition&quot;. In this case, I would also prefer HH.RegistrationCode with coding = 1 or 2
+	then the SL.ValidityCode completes the view with existing length composition or not
+	
+	I still prefer the simple solution expanding the existing HH code. I understand the distortion of the database rules with regards to the naming of this variable. Instead of HH.FishingValidity, why not put HH.ValidityCode exactly like in SL with     1 = Invalid, 
+	    2 = valid with FO characteristics only
+	    3 = valid with species composition
+	
+	It is not more two different information than can be &quot;None&quot; &quot;partial&quot; &quot;complete&quot;
+	
+	Best regards
+	
+	Joel
+	
+	 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+	 
+	Dear Joel
+	 
+	Yes, we are in line with regards to the problem. Thanks for summing it up in a reader friendly way.
+	 
+	About the solution, then you are right about the doubled information, when sampling type contains information about whether all species has been recorded or not. This can be solved either by removing the &quot;P&quot; sampling type so we separate between &quot;S&quot; and &quot;P&quot; on the HH.CatchRegistration or to remove the code &quot;partial&quot; (leaving only two codes: &quot;All&quot; and &quot;None&quot;). 
+	I  do not see that the three modality HH.CatchRegistration contains two types of information like HH.ValidityCode would do if it was combined to hold both the information of valid/invalid and AllSpecies/NoSpecies. In all cases the latter solution is not normal (in database terms).
+	 
+	If we agree on this, then we are left with two options.  
+	 
+	Option 1: Removing the code &quot;P&quot; from the field TR.SamplingType and add HH.CatchRegistration with three codes (&quot;Complete&quot;, &quot;Partial&quot;, &quot;None&quot;)
+	Option 2: Add HH.CatchRegistration with two codes (&quot;Yes &quot;, &quot;No&quot;).
+	 
+	I think option 1 is the way to go. It is more explicit, pulling out some information from the sampling protocol field and structuring it.
+	 
+	Best regards
+	Teunis 
+	 
+
+Dear Teunis and colleagues,
+
+We're almost there! but we need to refine a little.
+
+Starting from Option 1, I would keep the &quot;P&quot; in Sampling type, and Partial in HH.CatchRegistration means only one fraction (D/L) has been sampled. In that case, the modalities for HH.CatchRegistration should be :
+
+
+*	&quot;Complete&quot; : SL record is expected for both Landings and Discards fractions . If there is no SL record it is a true 0 value 
+*	&quot;Landings&quot; : SL record is expected only for the landed fraction. For this fraction, if there is no SL record, it is a true 0. For the &quot;Discards&quot;, no SL record is expected as it has not been registered. 
+*	&quot;Discards&quot; : SL record is expected only for the discarded fraction. For this fraction, if there is no SL record, it is a true 0. For the &quot;Landings&quot;, no SL record is expected as it has not been registered.
+	
+*	&quot;None&quot; : there is no SL record.
+	
+
+I understand my first proposal (message above) did not separate the information by fraction and was incomplete for raising and calculating the precision. I took the necessary time to ascertain that this proposal is complete and contains all we need.
+
+Best regards
+
+Joel
+
+ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Dear All
+ 
+Sorry for the delay in response.
+ 
+I see; we have different meanings of &quot;partial&quot; in HH.CatchRegistration. Both are valid. A partial registered catch can be registration of only a few selected species or it can be registration of only the discarded or the retained part. So how is this modelled in the best way?
+First question is: What level does this belong to? Is it on TR or on HH? We used to have the partial (species) on TR level coded as sampling type &quot;P&quot;. This is good enough for Denmark because we do not have differences between stations on the same trip. What about partial (D/L)? Can this be lifted up to TR-level or do we need to have the possibility to have differences in the partial sampling between FO's? The &quot;None&quot; value in HH.CatchRegistration certainly belong to HH-level an cannot be lifted to TR.
+Next question is: Is this one piece of information, that should be placed in just one field or should it be split into more fields? If it was placed in two fields and one of them had the value &quot;None&quot; and the other &quot;Complete&quot; or &quot;Partial&quot;, then it would be self contradicting. On the other hand we might have to add codes for the four possible combinations of partial if we had just one field (e.g. &quot;Partial (Landings all species)&quot; / &quot;Partial (Landings few species)&quot; / &quot;Partial (Discard all species)&quot; / &quot;Partial (Discard few species)&quot;), so the informations are related and intermingled but not one. So we can not answer the question by yes or no. What arguments can then be looked upon? Simplicity for the uploader and for the consumer are important to prevent mistakes. I think both would prefer one field and then limiting the number of sea-sampling codes in the TR.SamplingType to one. The data consumer would then have to look at just one field for inferring zero-catches, no matter if it for discard rates or CPUE. I think both uploader and consumer would find it strange to have &quot;partial (species)&quot; inside TR.SamplingType and then on the same time have Partial (Landings) and Partial (Discard) in a separate field even though one can argue for this.
+Both informations are really a part of the sampling-scheme, that is being pulled out of TR.SamplingType. TR.SamplingType is a composite field, so it is healthy to pull out information in a more DB-normalized and structured way. On the other hand, it does complicate the format if we make too many fields for describing the protocol. However it is necessary if it is on a lower level (HH vs.. TR).
+ 
+So I suggest that we have this information in the same field and since the code &quot;None&quot; can not be placed on TR-level, then it should be on HH:
+
+1.	One new field HH.CatchRegistration on HH, remove &quot;P&quot; from TR.SamplingTypes.
+
+Codes for HH.CatchRegistration: 
+ 
+*	&quot;Complete&quot; : SL record is expected for both Landings and Discards fractions for all species. If there is no SL record it is a true 0 value. 
+*	&quot;Partial (Landings all species)&quot; : SL record is expected for all species, but only for the landed fraction. For this fraction, if there is no SL record, it is a true 0. For the &quot;Discards&quot;, no SL record is expected as it has not been registered.  
+*	&quot;Partial (Landings some species)&quot; : SL record is expected only for a subset of species and only for the landed fraction. For this fraction, if there is no SL record, then it is not known if it is a true 0. For the &quot;Discards&quot;, no SL record is expected as it has not been registered. 
+*	&quot;Partial (Discards all species)&quot; : SL record is expected for all species but only for the discarded fraction. For this fraction, if there is no SL record, it is a true 0. For the &quot;Landings&quot;, no SL record is expected as it has not been registered. 
+*	&quot;None&quot; : there is no SL record.
+ 
+I think that the last possible code (&quot;Partial (Discards some species)&quot;) is so theoretical, that we do not have to include it. But it is easily added if needed.
+ 
+ 
+The alternative options are:
+2. Two new field HH.CatchRegistrationSpecies and HH.CatchRegistrationDisLan (bad name) on HH, remove &quot;P&quot; from TR.SamplingTypes.
+3. One new field HH.CatchRegistration (for D/L) on HH, keep &quot;P&quot; from TR.SamplingTypes for species.
+ 
+It should be noted that option 2, can be implemented on the DB level even if option 1 is used for the DEF. Option 3 is the option from Joel's previous mail. 
+ 
+We need a decision ASAP, so unless there is more new angles to this, then we should take the decision not later than Monday. Joel, feel free to pick a solution and then I'll distribute a new version of the DEF-doc. 
+
+ 
+
+Best regards
+Teunis
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20080118/0a236b5c/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20080118/0a236b5c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000047.html">[Cost-project-members] Exchange format updates
+</A></li>
+	<LI>Next message: <A HREF="000052.html">[Cost-project-members] Exchange format updates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#49">[ date ]</a>
+              <a href="thread.html#49">[ thread ]</a>
+              <a href="subject.html#49">[ subject ]</a>
+              <a href="author.html#49">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

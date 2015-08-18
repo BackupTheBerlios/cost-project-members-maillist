@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] Exchange format
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Exchange%20format&In-Reply-To=%3C88431FCDD055A44BA5EEE1EC14E7E151178D89%40lu-mail-san.dfu.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000060.html">
+   <LINK REL="Next"  HREF="000043.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] Exchange format</H1>
+    <B>Teunis Jansen</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Exchange%20format&In-Reply-To=%3C88431FCDD055A44BA5EEE1EC14E7E151178D89%40lu-mail-san.dfu.local%3E"
+       TITLE="[Cost-project-members] Exchange format">tej at difres.dk
+       </A><BR>
+    <I>Wed Jan  9 11:55:02 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000060.html">[Cost-project-members] Exchange format updates for FishFrame &amp;	COST
+</A></li>
+        <LI>Next message: <A HREF="000043.html">[Cost-project-members] Exchange format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#42">[ date ]</a>
+              <a href="thread.html#42">[ thread ]</a>
+              <a href="subject.html#42">[ subject ]</a>
+              <a href="author.html#42">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear All COST developers working with data input classes/methods
+ 
+During programming of the upload and validation in FishFrame 5.0, we have found a deviation from the design rules in the exchange format. This deviation makes problems for our generic coding, so we have to make ugly hacks.
+The design rule is that key fields are inherited from parent data types to child data types and appear there in the same order as in the parent type. So CA record fields should inherit the TR key fields. It does, but I placed Quarter and Month directly after Year to keep the time information gathered, but this was a mistake. TR key fields ends after Trip number. Next field is then Station no, the key field for HH. I therefore suggest that we move Quarter and Month to directly after Station no.
+Both fields (Quarter and Month) are key fields, so they should also have an asterisk marking - I just found out that I had forgot putting asterisk on them in the document.
+ 
+How would this reordering affect your programming. Would it be OK for you?
+
+Best regards
+
+Teunis
+
+ 
+
+___________________________________________
+
+Teunis Jansen, M. Sc., MCSD
+
+Marine Biologist &amp; Software Developer
+DTU  AQUA - National Institute of Aquatic Resources
+Technical University of Denmark
+
+Charlottenlund slot
+DK 2929 Charlottenlund
+   
+Mail: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">tej at difres.dk</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">tej at difres.dk</A>&gt; 
+Phone: +45 30 66 78 40
+Skype: Teunis Jansen
+Messenger: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">tej at dfu.min.dk</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">tej at dfu.min.dk</A>&gt; 
+
+   &gt;&lt;((((((((((&#186;&gt;    &lt;&#186;))))&gt;&lt;
+___________________________________________
+
+ 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20080109/8fa7d804/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20080109/8fa7d804/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000060.html">[Cost-project-members] Exchange format updates for FishFrame &amp;	COST
+</A></li>
+	<LI>Next message: <A HREF="000043.html">[Cost-project-members] Exchange format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#42">[ date ]</a>
+              <a href="thread.html#42">[ thread ]</a>
+              <a href="subject.html#42">[ subject ]</a>
+              <a href="author.html#42">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

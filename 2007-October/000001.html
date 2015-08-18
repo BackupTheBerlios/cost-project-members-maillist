@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] FF5_DEF structure
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20FF5_DEF%20structure&In-Reply-To=%3C470C9D54.5020803%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000000.html">
+   <LINK REL="Next"  HREF="000002.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] FF5_DEF structure</H1>
+    <B>Joel VIGNEAU</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20FF5_DEF%20structure&In-Reply-To=%3C470C9D54.5020803%40ifremer.fr%3E"
+       TITLE="[Cost-project-members] FF5_DEF structure">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Wed Oct 10 11:37:24 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000000.html">[Cost-project-members] [COST-members] Preparation of the expert	meeting
+</A></li>
+        <LI>Next message: <A HREF="000002.html">[Cost-project-members] COST: survey data - clarification
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+I have a _fundamental _question about the structure of the Data Exchange 
+Format, and more particularly about the CS-CA table.
+
+The label of this table is
+Sex-Maturity-Age-Weight-Length record (CA) in commercial samplings data (CS)
+
+The SGRN-06-03 agreed to split the collection of data in two families, 
+namely the fishery based and the population based data. The population 
+based data, given to be independent from any gear type or fishing 
+activity, is precisely the maturity-at-age, weight-at-age and 
+age-at-length.
+
+The linkage between the catches, related to fishing activities, and the 
+age, related to the population, is done by the length structure, the 
+time period and the area. For more information on this, please read the 
+SGRN-06-03 report before arguing on it in this forum.
+
+Pragmatically for the DEF, my suggestion (to be discussed) would be to
+    1 - unlink CA from CS
+    2 - add the fields Date or Quarter and Month
+    3 - modify Trip number, station no, Catch category and landing 
+category to optional (there can be a direct link for e.g. deriving 
+survey indices, subsampling for age directly from length sampling, ...)
+   
+I see that in the acoustic data there is a CA table also, but with 
+different fields. To my mind we should set up a standalone CA with all 
+the fields we need (those in CS.CA are Ok) rather than linking one to 
+the commercial sampling, one to the acoustic sampling and another one 
+which would be independent (purchase of fish for SMALK, ...).
+
+Sorry, I should have seen that right from the start, and thanks to Steve 
+for his suggestion to me of a possible CA problem.
+
+Best regards
+
+Joel
+
+
+-- 
+
+*/Jo&#235;l VIGNEAU
+/*Laboratoire &quot;Ressources Halieutiques&quot;
+IFREMER
+14 520 Port-en-Bessin
+
+T&#233;l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A>&gt;
+<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20071010/1aff13e8/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20071010/1aff13e8/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000000.html">[Cost-project-members] [COST-members] Preparation of the expert	meeting
+</A></li>
+	<LI>Next message: <A HREF="000002.html">[Cost-project-members] COST: survey data - clarification
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

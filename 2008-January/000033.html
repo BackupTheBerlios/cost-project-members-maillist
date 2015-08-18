@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] COSTcore 0.6-0 is out !
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20COSTcore%200.6-0%20is%20out%20%21&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581221D14A%40mail4.marlab.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000035.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] COSTcore 0.6-0 is out !</H1>
+    <B>Alastair Pout</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20COSTcore%200.6-0%20is%20out%20%21&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581221D14A%40mail4.marlab.ac.uk%3E"
+       TITLE="[Cost-project-members] COSTcore 0.6-0 is out !">A.Pout at MARLAB.AC.UK
+       </A><BR>
+    <I>Mon Jan  7 10:39:05 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000035.html">[Cost-project-members] COSTcore 0.6-0 is out !
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#33">[ date ]</a>
+              <a href="thread.html#33">[ thread ]</a>
+              <a href="subject.html#33">[ subject ]</a>
+              <a href="author.html#33">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Ernesto, Joel, Mathieu and all.  
+
+0.6 looks really good and the documentation is a big plus in seeing
+everything you have been up to!
+I'm happy to look at the English if you don't mind a bit of rewording
+here and there.  
+
+Just one thing about the cost core, setting up the non numerics as
+factors might cause a few problems down the line. Had a quick look at
+your code and I don't think they are used as factors anywhere, and (as I
+am sure you know) there are a number of things about factors that might
+not be desirable particularly for those not too familiar with R
+1.	for virtually anything that needs to be done to manipulate data
+all factors will need to be changed using as.character(xx) because
+factors are stored as a list of character names (the levels of the
+factor) and as numeric values and if not specified the numeric value is
+used.  
+2.	a unique set of levels for each factor is created with the
+creation of each data frame, which will have to be delt with if data
+frames are merged at any point. And there are little pitfalls like the
+name of a variable being retained in the levels list even if the values
+of a particular factor are all removed. 
+3.	ordering of levels is alphabetic and so does not follow the
+sequential ordering in a data frame, again this a potential trap that
+has to be appreciated in any indexing tasks. 
+4.	Down the line factors may need to be defined for modelling.  
+
+Could I suggest we stick to characters and numerics for the two classes
+for variables in the data sets? 
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000035.html">[Cost-project-members] COSTcore 0.6-0 is out !
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#33">[ date ]</a>
+              <a href="thread.html#33">[ thread ]</a>
+              <a href="subject.html#33">[ subject ]</a>
+              <a href="author.html#33">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

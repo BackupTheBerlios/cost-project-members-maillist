@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] Indicator of sampled FOs
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Indicator%20of%20sampled%20FOs&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581221D14E%40mail4.marlab.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000039.html">
+   <LINK REL="Next"  HREF="000041.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] Indicator of sampled FOs</H1>
+    <B>Alastair Pout</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Indicator%20of%20sampled%20FOs&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581221D14E%40mail4.marlab.ac.uk%3E"
+       TITLE="[Cost-project-members] Indicator of sampled FOs">A.Pout at MARLAB.AC.UK
+       </A><BR>
+    <I>Wed Jan  9 08:36:08 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000039.html">[Cost-project-members] Indicator of sampled FOs
+</A></li>
+        <LI>Next message: <A HREF="000041.html">[Cost-project-members] Indicator of sampled FOs
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#40">[ date ]</a>
+              <a href="thread.html#40">[ thread ]</a>
+              <a href="subject.html#40">[ subject ]</a>
+              <a href="author.html#40">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE> 
+
+ 
+
+________________________________
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>] On Behalf Of Joel VIGNEAU
+Sent: 08 January 2008 10:05
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members at lists.berlios.de</A>
+Subject: Re: [Cost-project-members] Indicator of sampled FOs
+
+ 
+
+
+
+Mathieu MERZEREAUD a &#233;crit : 
+
+
+
+Teunis Jansen a &#233;crit : 
+
+
+
+Hi all, 
+
+A little question has raised while I was trying to implement a &quot;Volume 
+of DIS/LAN per haul/trip&quot; plotting procedure. What is the indicator in 
+CS tables that tells us if an FO has been sampled or not? 
+The fact that this FO is in SL table might be one, but it implies that 
+SL is an exhaustive description of all sampled FOs in HH table. 
+The problem is that I'm working with a 'sole' dataset, so sampled FOs 
+may not be exhaustively described in SL (zero-values not recorded). 
+To my understanding ,the current situation requires that the datasets 
+comprise all species to assess which FO has been sampled or not. 
+Would it be better to add a field 'FO sampled' in HH table? 
+
+
+Best 
+Mathieu 
+_______________________________________________ 
+Cost-project-members mailing list 
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Cost-project-members at lists.berlios.de</A> 
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A> 
+
+------------------------------------------------------------------------ 
+--------------------------------- 
+Dear Mathieu 
+This information is found in the &quot;sampling type&quot; field. The sampling 
+type is the data collection protocol used. What you are after is: 
+&quot;S&quot; = Sea sampling 
+versus 
+&quot;P&quot; = partial sea sampling 
+In the descriptions of the sampling types in the data exchange format 
+doc; you can read that &quot;S&quot;-data has full species distribution while &quot;P&quot; 
+only samples few specific species in the catch. So when SL data are 
+present but without any sole-records, then you know it is a 0-catch when 
+sampling type is &quot;S&quot;. 
+Best regards 
+Teunis 
+
+ 
+
+Dear Teunis,
+
+I see your point concerning &quot;S&quot; and &quot;P&quot; which are very relevant and refer to the sampling protocol applied to the sampled trip. For the last call for data launched by STECF last year we have provided only &quot;S&quot; information because the &quot;P&quot; is hardly workable. Nevertheless, your statement only works if the non-sampled FOs are absent from the database, which is not the case. The observers take the information from every FOs on effort and location and even on the estimated weight of every landed species. When raising by an auxiliary variable, you can then easily raise to the trip
+
+When some information is given for all FOs the issue is about discriminating 0-values from non-sampled FOs without having to address the whole database. I explain: here in Ifremer, we have access to the whole database (I guess it is the same in FF), so we count the sampled FOs by looking at FOs where any species have been measured and we subset for one particular species in a second step. By doing so, we don't have any problems with 0-values, we make the sum and we divide by the total number of sampled FO calculated before subsetting. For the variance, you have to pay attention and include as many (0 - mean)^2 as necessary but it works.
+
+For COST, do we want the user to provide the full dataset each time one wants to raise discards or do we want to let the user provide only a subset with one species? Do we want the user to remove all the information recorded for the non-sampled FOs ? If we do so, how do we count the total effort of the trip (hours, days) or the total landings of that trip (landings of the targeted species, one particular species or whole landings) for raising by an auxiliary variable? Moreover, the DEF today allows to record any information we want on non-sampled FOs. It would be a pity not to use it.
+
+The simple solution would be to add a field &quot;FO Sampled&quot; Y/N in HH table.
+
+The fact that we have the information on the total number of FOs in a trip in TR table allows to control if we have as many records in HH and then raise by any auxiliary variable available. If not, it means that most of the auxiliary variable are unavailable for raising.
+
+Best regards
+
+Joel &amp; Mathieu
+
+
+Hi All 
+
+Could fishing validity $foVal in the hh not be used for this purpose? 
+
+I'm not sure what its present purpose is but we could define it as any haul which contributes to effort but for which there are no subsequent sl hl records. 
+
+All the best
+
+Alastair
+
+ 
+
+
+
+
+
+
+
+
+-- 
+
+
+
+Jo&#235;l VIGNEAU
+
+Laboratoire &quot;Ressources Halieutiques &lt;<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>&gt; &quot;
+IFREMER &lt;<A HREF="http://www.ifremer.fr/">http://www.ifremer.fr/</A>&gt; 
+14 520 Port-en-Bessin
+
+T&#233;l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A> 
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit <A HREF="http://www.messagelabs.com/email">http://www.messagelabs.com/email</A> 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20080109/eb7796be/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20080109/eb7796be/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000039.html">[Cost-project-members] Indicator of sampled FOs
+</A></li>
+	<LI>Next message: <A HREF="000041.html">[Cost-project-members] Indicator of sampled FOs
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#40">[ date ]</a>
+              <a href="thread.html#40">[ thread ]</a>
+              <a href="subject.html#40">[ subject ]</a>
+              <a href="author.html#40">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

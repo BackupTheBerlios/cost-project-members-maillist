@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] Nit picky things about the $foCatEu5	Nantes(DCR) matrix level 5 codes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Nit%20picky%20things%20about%20the%20%24foCatEu5%0A%09Nantes%28DCR%29%20matrix%20level%205%20codes&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C5812026495B3%40mail4.marlab.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000147.html">
+   <LINK REL="Next"  HREF="000148.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] Nit picky things about the $foCatEu5	Nantes(DCR) matrix level 5 codes</H1>
+    <B>Alastair Pout</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Nit%20picky%20things%20about%20the%20%24foCatEu5%0A%09Nantes%28DCR%29%20matrix%20level%205%20codes&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C5812026495B3%40mail4.marlab.ac.uk%3E"
+       TITLE="[Cost-project-members] Nit picky things about the $foCatEu5	Nantes(DCR) matrix level 5 codes">A.Pout at MARLAB.AC.UK
+       </A><BR>
+    <I>Fri Nov 21 14:27:37 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000147.html">[Cost-project-members] Nit picky things about the $foCatEu5 Nantes	(DCR) matrix level 5 codes
+</A></li>
+        <LI>Next message: <A HREF="000148.html">[Cost-project-members] Nit picky things about the $foCatEu5 Nantes(DCR) matrix level 5 codes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#154">[ date ]</a>
+              <a href="thread.html#154">[ thread ]</a>
+              <a href="subject.html#154">[ subject ]</a>
+              <a href="author.html#154">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Forgot the attachment 
+
+ 
+
+________________________________
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>] On Behalf Of
+Alastair Pout
+Sent: 21 November 2008 11:35
+To: cost member
+Subject: [Cost-project-members] Nit picky things about the $foCatEu5
+Nantes(DCR) matrix level 5 codes
+
+ 
+
+Dear Teunis, Henrik, Lisa, Joel, Mathieu, Ernesto and All 
+
+ 
+
+Nit picky things about the $foCatEu5 Nantes (DCR) matrix level 5 codes
+.....
+
+ 
+
+1. Can we set up an accepted protocol for the combination of level 4 and
+level 5 codes 
+
+These have the form XXX_YYY which is fine when the codes have 3 letters.
+
+
+With the 2 letter codes e.g. purse seine PS there are a number of
+possibilities. 
+
+ 
+
+*	this becomes PS_ and so there would be for example PS__SPF for
+purse seine small pelagic fish, a double underscore but still 7
+characters long.  
+
+ 
+
+*	this stays as PS and there would be PS_SPF but this is only 6
+characters 
+
+ 
+
+*	this is PS_SPF_ which is what is in the COSTcore code list at
+the moment because PS_SPF_0_0_0 etc is currently in the FISHFRAME code
+list as a level 6 and level 5's are defined as the first 7 characters
+from the level 6's, which gives PS_SPF_ 
+
+ 
+
+My preference would be to standardise on the PS__SPF form, 
+
+This I think is much less problematical for manipulating when
+programming as it means that all level 5 codes are 7 characters and
+allows the gear and target assemblage to be split (e.g. using the R
+functions substr or strsplit without having to worry that you get &quot;PF_&quot;
+as a target assemblage). 
+
+ 
+
+What does anybody else think?  
+
+ 
+
+ 
+
+2. Gear codes: Are we all happy that the gear codes can be any from 
+
+ 
+
+<A HREF="ftp://ftp.fao.org/FI/DOCUMENT/cwp/handbook/annex/AnnexM1fishinggear.pdf">ftp://ftp.fao.org/FI/DOCUMENT/cwp/handbook/annex/AnnexM1fishinggear.pdf</A>
+
+ 
+
+and thus level 5 codes (&amp; level 6 codes)  can be made form these? 
+
+ 
+
+Or are we adding level 5 (and level 6) codes to the Nantes matrix in
+doing this?  
+
+ 
+
+e.g. there is no OT code in the level 6's in the 26 feb 2008 def
+document but is OT_MPD (or OT__MPD or OT_MPT_) a valid Nantes matrix
+level 5 code? 
+
+ 
+
+Seems to me it should be but I think we run the risk of proliferating
+the number of possible metiers.   
+
+ 
+
+And the other thing is that $gear is no longer in the FISHFRAME/COST
+data exchange format. 
+
+Attached is the list of codes we have at FRS for the Nantes matrix but
+nobody here seems to know if this is definitive.  
+
+ 
+
+3. And for reference, in the FISHFRAME 5.0 COST data exchange format
+document in the 26 Feb 2008 version, as Mathieu noticed the other day,
+some of the descriptions are wrong in the level 6's, which is what was
+used for the current code list in COSTcore
+
+ 
+
+e.g. page 43 
+
+ 
+
+FPO_CRU  - Crustaceans bottom otter trawl 
+
+ 
+
+FYK_CRU  - Crustaceans bottom otter trawl
+
+ 
+
+FYK_MPD - mixed pelagic and demersal fish - bottom otter trawl 
+
+ 
+
+These should be pots and fyke nets and I will correct these in the
+COSTcore code.list 
+
+ 
+
+All the best
+
+Alastair 
+
+ 
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit <A HREF="http://www.messagelabs.com/email">http://www.messagelabs.com/email</A> 
+______________________________________________________________________
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit <A HREF="http://www.messagelabs.com/email">http://www.messagelabs.com/email</A> 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20081121/4983b4a3/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20081121/4983b4a3/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Nantes (DCR)  level 4 and 5 descriptions.xls
+Type: application/vnd.ms-excel
+Size: 17408 bytes
+Desc: Nantes (DCR)  level 4 and 5 descriptions.xls
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20081121/4983b4a3/attachment.xls">https://lists.berlios.de/pipermail/cost-project-members/attachments/20081121/4983b4a3/attachment.xls</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000147.html">[Cost-project-members] Nit picky things about the $foCatEu5 Nantes	(DCR) matrix level 5 codes
+</A></li>
+	<LI>Next message: <A HREF="000148.html">[Cost-project-members] Nit picky things about the $foCatEu5 Nantes(DCR) matrix level 5 codes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#154">[ date ]</a>
+              <a href="thread.html#154">[ thread ]</a>
+              <a href="subject.html#154">[ subject ]</a>
+              <a href="author.html#154">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

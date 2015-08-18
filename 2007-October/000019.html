@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] COST: SMAWL data from trawl surveys, acoustic surveys and commercial fisheries samplings
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20COST%3A%20SMAWL%20data%20from%20trawl%20surveys%2C%0A%20acoustic%20surveys%20and%20commercial%20fisheries%20samplings&In-Reply-To=%3C470E2AFD.2030401%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000018.html">
+   <LINK REL="Next"  HREF="000020.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] COST: SMAWL data from trawl surveys, acoustic surveys and commercial fisheries samplings</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20COST%3A%20SMAWL%20data%20from%20trawl%20surveys%2C%0A%20acoustic%20surveys%20and%20commercial%20fisheries%20samplings&In-Reply-To=%3C470E2AFD.2030401%40ipimar.pt%3E"
+       TITLE="[Cost-project-members] COST: SMAWL data from trawl surveys, acoustic surveys and commercial fisheries samplings">ernesto at ipimar.pt
+       </A><BR>
+    <I>Thu Oct 11 15:54:05 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000018.html">[Cost-project-members] COST: SMAWL data from trawl surveys, acoustic surveys and commercial fisheries samplings
+</A></li>
+        <LI>Next message: <A HREF="000020.html">[Cost-project-members] COST: SMAWL data from trawl surveys, acoustic surveys and commercial fisheries samplings
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Joel VIGNEAU wrote:
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> let me summarise the situation to see if we have the same understanding
+</I>&gt;<i>
+</I>&gt;<i> What we agree :
+</I>&gt;<i> FF.CS + FF.AS + DATRAS make a complete and non-overlapping picture of 
+</I>&gt;<i> all the fisheries information sampled.
+</I>&gt;<i>
+</I>&gt;<i> COST has based its structure on FF.CS but needs biological parameters 
+</I>&gt;<i> from surveys (FF.AS, DATRAS, and others...)
+</I>&gt;<i>
+</I>&gt;<i> The FF/COST DEF table CA now contains biological parameters from 
+</I>&gt;<i> individual fish.
+</I>&gt;<i>
+</I>&gt;<i> What remains under discussion :
+</I>&gt;<i> There are still different options and even variants within the options 
+</I>&gt;<i> proposed by Teunis. The option 2, which seems to gather the most 
+</I>&gt;<i> advantages, makes a CA table in COST DEF independent of CS in the 
+</I>&gt;<i> sense that we would not mandatorily request related information in HL. 
+</I>&gt;<i> There is a variant of 3 different CA tables or a unique one. My 
+</I>&gt;<i> preference goes to a unique one (I think there are not many 
+</I>&gt;<i> differences). For opening to the future, we could add a field 
+</I>&gt;<i> DATA_SOURCE (CS, AS, Surveys, ...). When the source is CS, we need to 
+</I>&gt;<i> have a related information in HL, otherwise, for the moment there is 
+</I>&gt;<i> no integrity check.
+</I>&gt;<i> If we go that way, do we have sufficient information in the CA table, 
+</I>&gt;<i> especially concerning the time period when the source is not HL?
+</I>&gt;<i> The stratification issue
+</I>&gt;<i> I'm not surprised with your graph. The CC is a stratification based on 
+</I>&gt;<i> individual weight, which according to the length/weight allometry 
+</I>&gt;<i> correspond approximately to a stratification by length. In the small 
+</I>&gt;<i> fish category, the mean length-at-age for every ages will be smaller 
+</I>&gt;<i> than in the medium fish category, which all will be smaller than in 
+</I>&gt;<i> the big fish category. The only way to get out of this, is to combine 
+</I>&gt;<i> all the CC into a complete matrix and multiply by the real length 
+</I>&gt;<i> proportion of the population, before doing any estimates.
+</I>&gt;<i>
+</I>&gt;<i> BR
+</I>&gt;<i>
+</I>&gt;<i> Joel 
+</I>Hi Joel,
+
+I think your summary is correct but I'd like to elaborate a little bit 
+more on CA tables.
+
+This information comes from 3 different sources, (i) market sampling, 
+(ii) on-board sampling and (iii) surveys, which differ in their 
+aggregation level. Most aggregated is market sampling where area and 
+time units are, at the most, rectangle and day. After we have on-board 
+sampling where sometimes its possible to have coordinates and time in 
+hour:minutes. The most disaggregated is survey data where we have 
+coordinates and time. The information related with the individual is the 
+same for all, although sometimes there are some missing observations 
+(one may sample age and not maturity, etc).
+
+Based on this rationale we may create a data structure that combines 
+area, rectangle, coordinates, day, hour with data source (this is 
+similar to sampling type so we may use that field):
+
+sampType; area, rectangle, latIni, lonIni, latFin, lonFin, dateIni, 
+dateFin, hourIni, hourFin, stock, spp, sex, etc (country, length, age, 
+blah blah blah)
+
+area, rectangle and dateFin would be mandatory so that market sampling 
+can be included and the other fields would be filled based on sampType. 
+A survey could provide everything lat, lon, hour, etc, while on-board 
+sampling could provide some of this information. This way we could 
+develop a data structure for individual biopars and link with CS using 
+rectangle, date, spp etc.
+
+My doubts are:
+
+1) although biopars are independent from the fishery we know that the 
+selectivity of the gear can bias the sampling, so I guess we should keep 
+some information about the gear used to collect the sample;
+2) how far can we go with this and still keep compatibility with FF ? A 
+change like this would require some adjustments to FF5 and FF5 exchange 
+format. Are you whiling to do it ? Otherwise it makes no sense 
+implementing only in COST and we should just keep it as it is now.
+
+IMO if we go this path we should stop developing CA for now, discuss the 
+data structure until we have an agreement and after implement FF5, FF5 
+exchange format and COST classes. In the mean time other packages could 
+move on with length frequencies methods.
+
+Best
+
+EJ
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000018.html">[Cost-project-members] COST: SMAWL data from trawl surveys, acoustic surveys and commercial fisheries samplings
+</A></li>
+	<LI>Next message: <A HREF="000020.html">[Cost-project-members] COST: SMAWL data from trawl surveys, acoustic surveys and commercial fisheries samplings
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

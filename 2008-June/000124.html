@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] Data Exchange Format Request for	modifications
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Data%20Exchange%20Format%20Request%20for%0A%09modifications&In-Reply-To=%3C48590042.3090503%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000123.html">
+   <LINK REL="Next"  HREF="000125.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] Data Exchange Format Request for	modifications</H1>
+    <B>Joel VIGNEAU</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Data%20Exchange%20Format%20Request%20for%0A%09modifications&In-Reply-To=%3C48590042.3090503%40ifremer.fr%3E"
+       TITLE="[Cost-project-members] Data Exchange Format Request for	modifications">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Wed Jun 18 14:32:02 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000123.html">[Cost-project-members] 2nd Expert Meeting
+</A></li>
+        <LI>Next message: <A HREF="000125.html">[Cost-project-members] Berried (was RE: Data Exchange Format Request formodifications)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#124">[ date ]</a>
+              <a href="thread.html#124">[ thread ]</a>
+              <a href="subject.html#124">[ subject ]</a>
+              <a href="author.html#124">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+prior to the meeting and summarising the latest discussions in the 
+mailing list, in the forum and in multilateral correspondance, here are 
+the issues to be discussed regarding the COST-FF Data Exchange Format :
+
+* the major discussion is about the sex field in hl table. The issue is 
+about extending this concept to other possibilities than F/M and also 
+extending the concept to take into consideration the taxa in a sampled box.
+The system today is that a given hh$staNum or hh$trpCode is documented 
+with sl$spp related to cl$spp and ce$spp at the population level. for 
+this sl$spp we may have different sexes (case of Nephrops) registered in 
+hl$sex.
+The first problem is that we don't have the sampled weight per sex. It's 
+not a problem to estimate the total number and the total length 
+structure per sex, but how do we calculate the total weight per sex?
+The second point is about burried Nephrops. I must say I don't see where 
+is the problem here. The field is optional for unsexed and, unless I 
+miss something, you cannot sex the burried Nephrops? Do we open this 
+field to other occurences? B(urried), ...
+The third point is about extending the concept of sex to taxa because 
+for me it is the same issue for raising. Some sl$spp (Anglerfish, 
+squids, ...) are a mixture of different species in the sampled box. The 
+raising must be done at the level of taxon/sex, although we only have 
+spp info in cl and ce. If we extend the concept of sex to a field called 
+taxon which would include the sex, it can be a way out to this. This 
+field would be optional in case of similarity with hl$spp.
+
+* including survey data in COST, and in particular DATRAS data. We only 
+need this information for stock-related variables (sex-ratio, maturity, 
+individual weight, age-at-length). The principle agreed at the beginning 
+of the project is that the ca table would be attached to tr only , same 
+as for the purchase of fish. In the ca table we made sure we had all the 
+information needed like time strata (quarter, month) and space strata 
+(area, rectangle). I understand that by doing so we do not include the 
+DATRAS data as such in COST but COST is not meant to calculate survey 
+indices. During this project we should stick to this, although there are 
+ca fields that can be used to link ca to hh and/or sl if needed (staNum, 
+sex, ...), but this should not be the rule.
+
+* some minor issues like
+    - should vessel type (tr) be mandatory or optional. IMO what should 
+be mandatory are the fields essential to the estimation of the variables 
+and their precision. COST is not a database. Following this, vessel type 
+should not be mandatory.
+
+    - should gear (hh) corresponds only to the survey gear and not 
+commercial where there are two metier fields (field 25 and 26).  Only 
+one of these fields is mandatory and it is the metier level 5 (Gear + 
+Target Assemblage). In the new DCR Regulation, the level 6 is mandatory 
+(Gear + Target Assemblage + Mesh size and selective device). Anyhow, it 
+will take time before all the countries are able to document levle 6 for 
+all their fisheries. The situation as it is now is a good compromise, 
+level 5 is mandatory in cs, cl and ce. Implicitly, this means that you 
+have to know the gear to document level 5 for your fisheries. I would 
+change nothing here.
+ 
+    - length corresponds only to total length. IMO it is not advisable 
+to proceed to transformation of variable prior to use it in COST. I mean 
+the length as it is measured will be used in age_length keys and we 
+would find the same information both in hl and in ca. Tansforming to 
+total length in both ca and hl would lead to errors and increase of 
+uncertainty. The solution would be to add a field Length type to hl and 
+ca to ensure that they are both compatible.
+
+Probably there are some other issues, so don't hesitate to mention them. 
+You may react to my suggestions, especially the FF (not France Football) 
+players! The outcome of this discussion and the agreements will be 
+summarised in the report of the meeting.
+
+Best regards
+
+Joel
+
+
+
+
+-- 
+
+/*Jo&#235;l VIGNEAU*/
+
+Laboratoire &quot;Ressources Halieutiques &lt;<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>&gt;&quot;
+IFREMER &lt;<A HREF="http://www.ifremer.fr/">http://www.ifremer.fr/</A>&gt;
+14 520 Port-en-Bessin
+
+T&#233;l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A>&gt;
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20080618/5dcb413b/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20080618/5dcb413b/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000123.html">[Cost-project-members] 2nd Expert Meeting
+</A></li>
+	<LI>Next message: <A HREF="000125.html">[Cost-project-members] Berried (was RE: Data Exchange Format Request formodifications)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#124">[ date ]</a>
+              <a href="thread.html#124">[ thread ]</a>
+              <a href="subject.html#124">[ subject ]</a>
+              <a href="author.html#124">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] Data Exchange Format	Request	formodifications
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Data%20Exchange%20Format%0A%09Request%09formodifications&In-Reply-To=%3C485B61FF.5070203%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000127.html">
+   <LINK REL="Next"  HREF="000129.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] Data Exchange Format	Request	formodifications</H1>
+    <B>Ernesto Jardim</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Data%20Exchange%20Format%0A%09Request%09formodifications&In-Reply-To=%3C485B61FF.5070203%40ipimar.pt%3E"
+       TITLE="[Cost-project-members] Data Exchange Format	Request	formodifications">ernesto at ipimar.pt
+       </A><BR>
+    <I>Fri Jun 20 09:53:35 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000127.html">[Cost-project-members] Data Exchange Format Request	formodifications
+</A></li>
+        <LI>Next message: <A HREF="000129.html">[Cost-project-members] COST/FishFrame integration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#128">[ date ]</a>
+              <a href="thread.html#128">[ thread ]</a>
+              <a href="subject.html#128">[ subject ]</a>
+              <a href="author.html#128">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Alastair Pout wrote:
+&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> *From:* <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A> 
+</I>&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>] *On Behalf Of 
+</I>&gt;<i> *David Maxwell (Cefas)
+</I>&gt;<i> *Sent:* 18 June 2008 17:38
+</I>&gt;<i> *To:* cost member
+</I>&gt;<i> *Subject:* Re: [Cost-project-members] Data Exchange Format Request 
+</I>&gt;<i> formodifications
+</I>&gt;<i>
+</I>&gt;<i>     -----Original Message-----
+</I>&gt;<i>     *From:* <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>
+</I>&gt;<i>     [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>]*On Behalf
+</I>&gt;<i>     Of *Joel VIGNEAU
+</I>&gt;<i>     *Sent:* 18 June 2008 13:32
+</I>&gt;<i>     *To:* cost member
+</I>&gt;<i>     *Subject:* [Cost-project-members] Data Exchange Format Request
+</I>&gt;<i>     formodifications
+</I>&gt;<i>
+</I>&gt;<i>     Dear all,
+</I>&gt;<i>
+</I>&gt;<i>     prior to the meeting and summarising the latest discussions in the
+</I>&gt;<i>     mailing list, in the forum and in multilateral correspondance,
+</I>&gt;<i>     here are the issues to be discussed regarding the COST-FF Data
+</I>&gt;<i>     Exchange Format :
+</I>&gt;<i>
+</I>&gt;<i>     * the major discussion is about the sex field in hl table. The
+</I>&gt;<i>     issue is about extending this concept to other possibilities than
+</I>&gt;<i>     F/M and also extending the concept to take into consideration the
+</I>&gt;<i>     taxa in a sampled box.
+</I>&gt;<i>     The system today is that a given hh$staNum or hh$trpCode is
+</I>&gt;<i>     documented with sl$spp related to cl$spp and ce$spp at the
+</I>&gt;<i>     population level. for this sl$spp we may have different sexes
+</I>&gt;<i>     (case of Nephrops) registered in hl$sex.
+</I>&gt;<i>     The first problem is that we don't have the sampled weight per
+</I>&gt;<i>     sex. It's not a problem to estimate the total number and the total
+</I>&gt;<i>     length structure per sex, but how do we calculate the total weight
+</I>&gt;<i>     per sex?
+</I>&gt;<i>     The second point is about burried Nephrops. I must say I don't see
+</I>&gt;<i>     where is the problem here. The field is optional for unsexed and,
+</I>&gt;<i>     unless I miss something, you cannot sex the burried Nephrops? Do
+</I>&gt;<i>     we open this field to other occurences? B(urried), ...
+</I>&gt;<i>     The third point is about extending the concept of sex to taxa
+</I>&gt;<i>     because for me it is the same issue for raising. Some sl$spp
+</I>&gt;<i>     (Anglerfish, squids, ...) are a mixture of different species in
+</I>&gt;<i>     the sampled box. The raising must be done at the level of
+</I>&gt;<i>     taxon/sex, although we only have spp info in cl and ce. If we
+</I>&gt;<i>     extend the concept of sex to a field called taxon which would
+</I>&gt;<i>     include the sex, it can be a way out to this. This field would be
+</I>&gt;<i>     optional in case of similarity with hl$spp.
+</I>&gt;<i>
+</I>&gt;<i>     * including survey data in COST, and in particular DATRAS data. We
+</I>&gt;<i>     only need this information for stock-related variables (sex-ratio,
+</I>&gt;<i>     maturity, individual weight, age-at-length). The principle agreed
+</I>&gt;<i>     at the beginning of the project is that the ca table would be
+</I>&gt;<i>     attached to tr only , same as for the purchase of fish. In the ca
+</I>&gt;<i>     table we made sure we had all the information needed like time
+</I>&gt;<i>     strata (quarter, month) and space strata (area, rectangle). I
+</I>&gt;<i>     understand that by doing so we do not include the DATRAS data as
+</I>&gt;<i>     such in COST but COST is not meant to calculate survey indices.
+</I>&gt;<i>     During this project we should stick to this, although there are ca
+</I>&gt;<i>     fields that can be used to link ca to hh and/or sl if needed
+</I>&gt;<i>     (staNum, sex, ...), but this should not be the rule.
+</I>&gt;<i>
+</I>&gt;<i>     * some minor issues like
+</I>&gt;<i>     - should vessel type (tr) be mandatory or optional. IMO what
+</I>&gt;<i>     should be mandatory are the fields essential to the estimation of
+</I>&gt;<i>     the variables and their precision. COST is not a database.
+</I>&gt;<i>     Following this, vessel type should not be mandatory.
+</I>&gt;<i>
+</I>&gt;<i>     - should gear (hh) corresponds only to the survey gear and not
+</I>&gt;<i>     commercial where there are two metier fields (field 25 and 26).
+</I>&gt;<i>     Only one of these fields is mandatory and it is the metier level 5
+</I>&gt;<i>     (Gear + Target Assemblage). In the new DCR Regulation, the level 6
+</I>&gt;<i>     is mandatory (Gear + Target Assemblage + Mesh size and selective
+</I>&gt;<i>     device). Anyhow, it will take time before all the countries are
+</I>&gt;<i>     able to document levle 6 for all their fisheries. The situation as
+</I>&gt;<i>     it is now is a good compromise, level 5 is mandatory in cs, cl and
+</I>&gt;<i>     ce. Implicitly, this means that you have to know the gear to
+</I>&gt;<i>     document level 5 for your fisheries. I would change nothing here.
+</I>&gt;<i>
+</I>&gt;<i>     - length corresponds only to total length. IMO it is not advisable
+</I>&gt;<i>     to proceed to transformation of variable prior to use it in COST.
+</I>&gt;<i>     I mean the length as it is measured will be used in age_length
+</I>&gt;<i>     keys and we would find the same information both in hl and in ca.
+</I>&gt;<i>     Tansforming to total length in both ca and hl would lead to errors
+</I>&gt;<i>     and increase of uncertainty. The solution would be to add a field
+</I>&gt;<i>     Length type to hl and ca to ensure that they are both compatible.
+</I>&gt;<i>
+</I>&gt;<i>     Probably there are some other issues, so don't hesitate to mention
+</I>&gt;<i>     them. You may react to my suggestions, especially the FF (not
+</I>&gt;<i>     France Football) players! The outcome of this discussion and the
+</I>&gt;<i>     agreements will be summarised in the report of the meeting.
+</I>&gt;<i>
+</I>&gt;<i>     Best regards
+</I>&gt;<i>
+</I>&gt;<i>     Joel
+</I>&gt;<i>
+</I>&gt;<i>     -- 
+</I>&gt;<i>
+</I>&gt;<i>     */ Jo&#235;l VIGNEAU/*
+</I>&gt;<i>
+</I>&gt;<i>     Laboratoire &quot;Ressources Halieutiques
+</I>&gt;<i>     &lt;<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>&gt;&quot;
+</I>&gt;<i>     IFREMER &lt;<A HREF="http://www.ifremer.fr/">http://www.ifremer.fr/</A>&gt;
+</I>&gt;<i>     14 520 Port-en-Bessin
+</I>&gt;<i>
+</I>&gt;<i>     T&#233;l : (33)2 31 51 56 41 - Fax (33)2 31 51 56 01
+</I>&gt;<i>     m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     [David Maxwell (Cefas)]
+</I>&gt;<i>
+</I>&gt;<i>     Joel wrote &gt;&gt;* including survey data in COST, and in particular
+</I>&gt;<i>     DATRAS data.
+</I>&gt;<i>
+</I>&gt;<i>     Lisa has written some SAS code that converts data from the DATRAS
+</I>&gt;<i>     output data file to the FF/Cost format. So even if this is not
+</I>&gt;<i>     mandatory we can do it.
+</I>&gt;<i>
+</I>&gt;<i>     There are several blank columns but it means that all CS tables
+</I>&gt;<i>     are present, the CS input function works and length distributions
+</I>&gt;<i>     can be linked to the biological data.
+</I>&gt;<i>
+</I>&gt;<i>     Here are comments from the very recent workshop (WKMOG) that used
+</I>&gt;<i>     the data format (and my thoughts)
+</I>&gt;<i>
+</I>&gt;<i>     Code lists (should be easy):
+</I>&gt;<i>
+</I>&gt;<i>     The field &#8220;otolith side&#8221; could include an option for when other
+</I>&gt;<i>     calcified structures are used (i.e. illicia, spines&#8230;).
+</I>&gt;<i>
+</I>&gt;<i>     The coding system used for rectangle and/or area for the
+</I>&gt;<i>     Mediterranean countries would need to be incorporated (SAC-GFCM
+</I>&gt;<i>     Geographical Sub-Areas in the Mediterranean (Rome, 2006)).
+</I>&gt;<i>
+</I>&gt;<i>     Extra field (not needed immediately, one for the future?)
+</I>&gt;<i>
+</I>&gt;<i>     The biological samples (CA) table does not take account of
+</I>&gt;<i>     histology results, these are necessary if a correction factor or
+</I>&gt;<i>     calibration is required for the maturity stages. an extra,
+</I>&gt;<i>     optional, field is necessary for the microscopic maturity stage
+</I>&gt;<i>     results.
+</I>&gt;<i>
+</I>&gt;<i>     Field description (easy)
+</I>&gt;<i>
+</I>&gt;<i>     Due to interpretation issues with the &#8216;length class&#8217; field and its
+</I>&gt;<i>     corresponding field &#8216;length code&#8217;, it was decided that a fuller
+</I>&gt;<i>     explanation was required, i.e. In mm, Actual length or lower bound
+</I>&gt;<i>     of length class e.g. 650 for 65-66 cm.
+</I>&gt;<i>
+</I>&gt;<i>     Extra field (already in topics to discuss)
+</I>&gt;<i>
+</I>&gt;<i>     When survey data are used the species list (SL) table should
+</I>&gt;<i>     include a field for sex. This is necessary as some species of fish
+</I>&gt;<i>     are sexed prior to weighing, such as flat fish and elasmobranches.
+</I>&gt;<i>     This extra field is necessary in order to raise maturity correctly.
+</I>&gt;<i>
+</I>&gt;<i>     I will need to be very awake next week!
+</I>&gt;<i>
+</I>&gt;<i>     Best wishes, David
+</I>&gt;<i>
+</I>&gt;<i> Dear All
+</I>&gt;<i>
+</I>&gt;<i> Clarifications on dealing with Nephrops:
+</I>&gt;<i>
+</I>&gt;<i> Carapace lengths are used to estimate weight, and where only tails are 
+</I>&gt;<i> available the width is measured and can be converted to an approximate 
+</I>&gt;<i> length, thence weight.
+</I>&gt;<i>
+</I>&gt;<i> The proportions of tails in a sample is both variable and can be quite 
+</I>&gt;<i> high apparently.
+</I>&gt;<i>
+</I>&gt;<i> The issue seems to me that in terms of deriving precision estimates we 
+</I>&gt;<i> need to be considering the precision of the measured variable, rather 
+</I>&gt;<i> than a derived measure, therefore we are dealing with the lowest level 
+</I>&gt;<i> of disaggregated data available therefore we need to include tail width.
+</I>&gt;<i>
+</I>&gt;<i> It also seems to me that this is just another sorting process Nephrops 
+</I>&gt;<i> have in effect been sorted into tails and wholes all we need to do is 
+</I>&gt;<i> include &#8220;Nephrops&#8221; into $commCatScl (commercial size category scale) 
+</I>&gt;<i> in the Sl table with &#8220;tail&#8221; and &#8220;whole&#8221; (or &#8220;carapace&#8221;) being added to 
+</I>&gt;<i> the appropriate code list for $commCat
+</I>&gt;<i>
+</I>&gt;<i> Berried Nephrops (females with eggs) (apologies for the buried/berried 
+</I>&gt;<i> confusion) as I understand it have different catchabilities in trawls 
+</I>&gt;<i> and pots and form different proportions of the catch at different 
+</I>&gt;<i> times of the year. Can this also not be very easily accommodated in 
+</I>&gt;<i> the CA table with additions of &#8220;Nephrops&#8221; to the code list for 
+</I>&gt;<i> $matScale (maturity scale) and &#8220;berried&#8221; and &#8220;not berried&#8221; in 
+</I>&gt;<i> $matSatge (maturity stage)
+</I>&gt;<i>
+</I>&gt;<i> All the best
+</I>&gt;<i>
+</I>&gt;<i> Alastair
+</I>&gt;<i>
+</I>
+Hi Alastair,
+
+Your suggestion looks like a good solution and you are correct, tales 
+and wholes are separated due to the very different commercial value, so 
+it works like a stratification factor. I guess you have a similar 
+problem with gutted and ungutted fish.
+
+Best
+
+EJ
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000127.html">[Cost-project-members] Data Exchange Format Request	formodifications
+</A></li>
+	<LI>Next message: <A HREF="000129.html">[Cost-project-members] COST/FishFrame integration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#128">[ date ]</a>
+              <a href="thread.html#128">[ thread ]</a>
+              <a href="subject.html#128">[ subject ]</a>
+              <a href="author.html#128">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

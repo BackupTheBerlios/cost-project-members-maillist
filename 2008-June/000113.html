@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] [Fwd: RE: subsampling of discards on observer trips]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20%5BFwd%3A%20RE%3A%20subsampling%20of%20discards%20on%0A%20observer%20trips%5D&In-Reply-To=%3C48526596.3000504%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000111.html">
+   <LINK REL="Next"  HREF="000114.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] [Fwd: RE: subsampling of discards on observer trips]</H1>
+    <B>Joel VIGNEAU</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20%5BFwd%3A%20RE%3A%20subsampling%20of%20discards%20on%0A%20observer%20trips%5D&In-Reply-To=%3C48526596.3000504%40ifremer.fr%3E"
+       TITLE="[Cost-project-members] [Fwd: RE: subsampling of discards on observer trips]">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Fri Jun 13 14:18:30 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000111.html">[Cost-project-members] 2nd COST expert meeting
+</A></li>
+        <LI>Next message: <A HREF="000114.html">[Cost-project-members] [Fwd: RE: subsampling of discards on observer trips]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#113">[ date ]</a>
+              <a href="thread.html#113">[ thread ]</a>
+              <a href="subject.html#113">[ subject ]</a>
+              <a href="author.html#113">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Sorry, by responding to Alastair, I thought I was answering to the group 
+but it was not the case.
+  |
+  |
+ \/
+
+
+-------- Message original --------
+Sujet: 	RE: [Cost-project-members] subsampling of discards on observer 
+trips
+Date: 	Fri, 13 Jun 2008 10:07:03 +0100
+De: 	Alastair Pout &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">A.Pout at marlab.ac.uk</A>&gt;
+Pour: 	Joel VIGNEAU &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A>&gt;
+R&#233;f&#233;rences: 
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">8F90BAFE30CE2D458953FC0F1709830B09568E at LOWEXPRESS.corp.cefas.co.uk</A>&gt;&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">483D3A7D.8060409 at nr.no</A>&gt;&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">A0F8DAFB525DED4ABAF6841BB11C581221D203 at mail4.marlab.ac.uk</A>&gt; 
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">20080601215537.b2klb330g080ow8o at www.ifremer.fr</A>&gt; 
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">A0F8DAFB525DED4ABAF6841BB11C581221D225 at mail4.marlab.ac.uk</A>&gt; 
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">485231E1.1090701 at ifremer.fr</A>&gt;
+
+
+
+ 
+
+ 
+
+------------------------------------------------------------------------
+
+*From:* Joel VIGNEAU [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A>]
+*Sent:* 13 June 2008 09:38
+*To:* Alastair Pout
+*Subject:* Re: [Cost-project-members] subsampling of discards on 
+observer trips
+
+ 
+
+
+
+Alastair Pout a &#233;crit :
+
+Hi All
+
+I'm trying to get some FRS observer (discard) data into COST format and
+
+have a query about fitting into the SL table format the subsampling of
+
+the discarded catch. 
+
+ 
+
+At the point at which we sample discards they are unsorted, and a
+
+secondary problem is that the discarded and subsampled fraction are
+
+measured in baskets rather than as an actual weight, though baskets have
+
+a nominal weight. 
+
+ 
+
+So specifically, our sampling protocol is that for each haul we have a
+
+total number of unsorted discarded baskets from which a number are
+
+subsampled. From the subsampled baskets the length frequencies are taken
+
+from all species but only those for cod, haddock, whiting and saithe are
+
+subsequently stored electronically. 
+
+ 
+
+The raw data we store (electronically) is therefore number of baskets
+
+discarded, the number subsampled and the length frequencies of the cod,
+
+haddock, whiting, and saithe that were subsampled. 
+
+ 
+
+In the SL table for the discarded fraction ($catchCat = &quot;DIS&quot;) we have
+
+weight ($wt) and subsampled weight ($subSampWt) and species ($spp) 
+
+ 
+
+I can calculate a subsampled weight by species using the length
+
+frequency distribution and a standard weight length relationship (for
+
+each species) and use the raising factor of discarded baskets to
+
+subsampled baskets to obtain a discarded weight by species. 
+
+However this seems to me a long way from the raw data and also involves
+
+the assumption that the raising factor from the baskets is the same for
+
+all the fish species. 
+
+ 
+
+Is that what we want to do?    
+
+ 
+
+All the best
+
+Alastair
+
+_______________________________________________
+
+Cost-project-members mailing list
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Cost-project-members at lists.berlios.de</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Cost-project-members at lists.berlios.de</A>&gt;
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A>
+
+  
+
+Dear Alastair,
+
+from the different issues addressed in your mail, the easiest one to 
+answer is about having the same raising factor for all fish in the 
+sampled baskets : YES.
+
+For the weight, my first question is how do you evaluate discards weight 
+without information on weight? here we used to weight the sampled 
+baskets (or sum of the weight of the species in the sampled baskets) and 
+apply the raising factor (total no of baskets/ no sampled baskets). When 
+the weighting is impossible or inaccurate (bad weather, ...) there is 
+the possibility to use length~weight relationship provided that these 
+parameters are estimated that very quarter in that very division. If 
+this is not possible, then we use what we can (standard L~W 
+relationship) but we try to update these standards one by one. Anyhow, 
+the weight is a mandatory variable we cannot skip, that's why I have 
+asked this question at the beginning of the paragraph!
+
+Concerning the non storage of the other length structures, it's a pity! 
+would there be a possibility to register this information by 
+sub-contractors eventually?
+
+Back to COST issues, I suppose there is no other ways for you than going 
+through standard L~W relationships. Any other ideas?
+
+Best regards
+
+Joel
+
+Hi Joel
+
+ 
+
+Discard weight by species where the baskets are mixed is calculated 
+retrospectively from the length frequency and a length weight 
+relationship and then scaled with the raising factor.
+
+How often our length weight relationships are updated I do not know, I 
+suspect not that often! and entering all species into our database I 
+agree would be desirable but it's a question of manpower and priorities 
+I guess.
+
+ 
+
+My only other thoughts were allowing $spp in Sl to be e.g. Gadidae sp. 
+and in hl to be more precise, or recording sampled baskets and discarded 
+baskets instead of weight in sl, but neither of these are viable.
+
+So my concern was really whether these sorts of manipulations to get a 
+weight had implications for bootstrapping and or precision estimates.     
+
+ 
+
+All the best
+
+Alastair
+
+ 
+
+ 
+
+
+-- 
+
+/*Jo&#235;l VIGNEAU*/
+
+Laboratoire &quot;Ressources Halieutiques &lt;<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>&gt;&quot;
+IFREMER &lt;<A HREF="http://www.ifremer.fr/">http://www.ifremer.fr/</A>&gt;
+14 520 Port-en-Bessin
+
+T&#233;l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A>&gt;
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20080613/92dedb53/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20080613/92dedb53/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000111.html">[Cost-project-members] 2nd COST expert meeting
+</A></li>
+	<LI>Next message: <A HREF="000114.html">[Cost-project-members] [Fwd: RE: subsampling of discards on observer trips]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#113">[ date ]</a>
+              <a href="thread.html#113">[ thread ]</a>
+              <a href="subject.html#113">[ subject ]</a>
+              <a href="author.html#113">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

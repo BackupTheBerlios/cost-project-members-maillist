@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] Minutes of Ifremer beta-testing session
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2009-March/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Minutes%20of%20Ifremer%20beta-testing%20session&In-Reply-To=%3C49D0CDB0.6040200%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] Minutes of Ifremer beta-testing session</H1>
+    <B>Joel VIGNEAU</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Minutes%20of%20Ifremer%20beta-testing%20session&In-Reply-To=%3C49D0CDB0.6040200%40ifremer.fr%3E"
+       TITLE="[Cost-project-members] Minutes of Ifremer beta-testing session">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Mon Mar 30 15:48:32 CEST 2009</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#159">[ date ]</a>
+              <a href="thread.html#159">[ thread ]</a>
+              <a href="subject.html#159">[ subject ]</a>
+              <a href="author.html#159">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+last week in Ifremer, we had a working sesion with all responsibles for 
+market sampling. 18 stocks were reviewed with the COST tools with people 
+having very heterogeneous skills in R.
+
+The programme to follow was
+
+    * STEP 1 : Importation of data
+          o Importation of samples from Ifremer central database
+          o Importation of landings files
+          o Importation of biological parameters
+    * STEP 2 : Exploratory Data Analysis
+          o Looking for errors : Delta plots
+          o Reporting
+          o Validation of the dataset
+    * STEP 3 : Stratification and recoding
+          o specification of the stratification
+          o Spatial exploration
+          o Recoding the strata (if necessary)
+          o Consolidation of the dataset
+          o Save/load the consolidated dataset
+    * STEP 4 : Length Structure Analysis
+          o Creation of the empty dbe object
+          o Raising the data
+          o Calculation of CI and CV
+          o Graph the results
+    * STEP 5 : Age structure Analysis
+          o Exploratory analysis of the ALKs
+          o Filling of the gaps, if needed
+          o Combination of length structure and ALK to form Age structure
+          o Calculation of CI and CV
+          o Graph the results
+    * STEP 6 : Analysis of biological parameters
+          o Exploratory analysis
+          o Calculation of the parameters
+          o Graph the results
+
+The workshop was very successful in the sense that the 18 stocks 
+performed the analysis up to step 5. YES! The step 6 was performed only 
+by a few stocks because of lack of time (3 days meeting). The results of 
+the length structure perfectly match the length structure given by our 
+central software, except some cases which are under scrutiny now. We 
+have not looked yet at the age structures.
+
+The strategies were all LS + ALK = AS (for stocks with age info, of course)
+There were some stocks with size increments of 1 mm (Nephrops), 5 mm 
+(sardine) and 1 cm
+There were stocks with male and female mixed in the sampled boxes 
+(Nephrops and megrim)
+There were stocks with different species mixed in the sampled boxes 
+(Lophius sp.)
+
+The biggest issue was the importation phase. The error messages are 
+difficult to interpret for a non expert. Once the datasets in the COST R 
+environment, the level of stress goes down quickly :)
+
+Otherwise, we have a problem of code in the raise length method, since 
+it is very penalised by the size of the samples (we had a 1000 samples 
+stock!!). It is a 6 dimensional object on which we use tapply and apply. 
+I do not imagine performing a bootstrap on this!! Mathieu is looking at 
+optimizing it.
+The spatial plots did not work. It must be a minor issue, but we did not 
+have time to fix it, plus the fact that for market sampling, we have not 
+that much info to plot spatially.
+The ALK views and gaps filling were much appreciated. In case of 
+changing the size increment, there is a relevant demand to also specify 
+the starting point so that all years/data could be comparable. In case 
+of changing the increment, the length measurements in HL must also 
+change accordingly, or the length structure estimated in the dbe object 
+(I personnally prefer the latter). In both cases, Mathieu has to work 
+out the code.
+The bp estimates seem to work but they would deserve a special session.
+We need a method to sum the strata of the dbe object in order to 
+estimate yearly, or m&#233;tier or whatever combination of strata estimates 
+with CV and CI. Mathieu will care of this.
+We need a method to export the dbe object in InterCatch standard. Who 
+takes care of this?
+
+6 weeks from the deadline of the project, I must admit I was quite happy 
+with these results. I think we are very close from a DBE package and 
+we'll need to perform this kind of beta-testing session in other 
+institutes, including direct age structure estimates, bootstrap, 
+biological parameters and discards raising. We have one person testing 
+the discards raising procedures full-time here on the Ifremer datasets 
+and it seems to work correctly.
+
+I'm a bit blind on what's going on for the MBE package, and also I would 
+like some news from Dorleta on how we can proceed at best for the SIM 
+package.
+
+For all the codes that has been tested, we need the developers to fill 
+completely and properly the help pages, then we'll consider a user 
+manual following the step approach drafted above, (plus discards, plus 
+mbe, plus sim, plus ...). I will circulate a report frame among the 
+leaders of packages very soon.
+
+I anticipate a demand for examples going through the whole process. I 
+will draft some properly and tell you when I put them on the website.
+
+Best regards
+
+Joel
+
+
+-- 
+
+*/Jo&#235;l VIGNEAU
+/*Laboratoire &quot;Ressources Halieutiques&quot;
+IFREMER
+14 520 Port-en-Bessin
+
+T&#233;l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A>&gt;
+<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20090330/633ade0e/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20090330/633ade0e/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#159">[ date ]</a>
+              <a href="thread.html#159">[ thread ]</a>
+              <a href="subject.html#159">[ subject ]</a>
+              <a href="author.html#159">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

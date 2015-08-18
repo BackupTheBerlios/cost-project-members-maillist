@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] COST: survey data - clarification
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20COST%3A%20survey%20data%20-%20clarification&In-Reply-To=%3C470CDD4F.8040000%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000009.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] COST: survey data - clarification</H1>
+    <B>Joel VIGNEAU</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20COST%3A%20survey%20data%20-%20clarification&In-Reply-To=%3C470CDD4F.8040000%40ifremer.fr%3E"
+       TITLE="[Cost-project-members] COST: survey data - clarification">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Wed Oct 10 16:10:23 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000009.html">[Cost-project-members] COST: Data Exchang Format
+</A></li>
+        <LI>Next message: <A HREF="000005.html">[Cost-project-members] COST: survey data - clarification
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+Liz Clarke a &#233;crit :
+&gt;<i>
+</I>&gt;<i> Hello all.
+</I>&gt;<i>
+</I>&gt;<i> I would just like to clarify COST's approach to survey data.
+</I>&gt;<i>
+</I>&gt;<i> In the COST proposal (pages 7-8) we specify we are estimating 
+</I>&gt;<i> parameters in
+</I>&gt;<i>         Module E - discards volume estimates
+</I>&gt;<i>         Module H - length and age structure of the catches/landings
+</I>&gt;<i>         Module I - other biological parameters
+</I>&gt;<i>
+</I>&gt;<i> Since FRS only collects data for other biological parameters from 
+</I>&gt;<i> research surveys rather than market/discard sampling (I think, apart 
+</I>&gt;<i> from Nephrops which are sexed) I previously assumed that COST also 
+</I>&gt;<i> covered research survey trawl data.
+</I>&gt;<i>
+</I>&gt;<i> However, Joel's comment on the data exchange forum 26/09/07 implies 
+</I>&gt;<i> otherwise:
+</I>&gt;<i>
+</I>&gt;<i> Concerning the survey data, they may be stored in a FF format but no 
+</I>&gt;<i> methods addressing this issue will be developed within COST. There are 
+</I>&gt;<i> different problems and different expertise to search here, but in 
+</I>&gt;<i> Lisbon we can begin the discussion on the prospect of COST II.   
+</I>&gt;<i>
+</I>&gt;<i> However, Joel's email &quot;[Cost-project-members] FF5_DEF structure&quot; on 
+</I>&gt;<i> the members-mailing-list 10/10/07 refers to acoustic data. I presume 
+</I>&gt;<i> this was a reference to FF5 formats in general rather than their 
+</I>&gt;<i> specific application to COST - I wasn't aware we were going to 
+</I>&gt;<i> consider acoustic data?
+</I>&gt;<i>
+</I>&gt;<i> Am I right in thinking that COST does not apply to survey data? Closer 
+</I>&gt;<i> reading of the definition of Module I other biological parameters in 
+</I>&gt;<i> EU Reg 1639/2001 does not help (me) clarify this at all!
+</I>&gt;<i>
+</I>&gt;<i> I'll be very happy to discover that I've misunderstood, as it reduces 
+</I>&gt;<i> the work load I thought we had to cover in COST. However, due to my 
+</I>&gt;<i> misunderstanding, the text I drafted for the EDA package (WP3) 
+</I>&gt;<i> includes specific mention of research survey data for other biological 
+</I>&gt;<i> parameters.
+</I>&gt;<i>
+</I>&gt;<i> How do we resolve this if we are not analysing survey data?
+</I>&gt;<i> all the best
+</I>&gt;<i> Liz
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>Hi Liz,
+
+sorry for my lack of clarity in the message concerning the DEF and the 
+acoustic data. I was refering there about the FF format in general as my 
+demand was to create an independent CA table (and in that case this new 
+CA would also be usable for the acoustic information).
+
+My comment on the forum still stands : no work on survey catch data. 
+More precisely, no index calculation and no raising procedures specific 
+to surveys.
+
+However, the population based data collected within a survey, such as 
+the SMAWLK data, are to be dealt with in COST. This is under the 
+biological parameters item (in each WP) and the information can be 
+provided by different sources, including the surveys. The rules should 
+be (to be discussed next week)
+
+    * The sampling coverage has to take into account all the sources.
+    * The merging of the different sources can be done provided that it
+      is the same length class, same area and same time period. There is
+      a specific function that will be developed (already done by
+      Mathieu following Hans Gerritsen paper) to evaluate the
+      similarities of the samples. It can be positioned in the EDA (to
+      be discussed).
+    * The population parameters (SMW at age) can only be estimated after
+      combining the population length structure to the SMAWLK.
+    * Like the age structure of a population, the variance of the
+      estimates combines the internal variance of the SMAWLK and the
+      variance of the length structure.
+
+The only way it can work now is to avoid deriving a length structure of 
+a population from survey catches. As I said in the forum, this could be 
+in COST II, IF needed.
+
+By drawing the WP frames during the sub-group work next week, it is such 
+&quot;algorithms&quot; I want to be written and agreed.
+
+Best regards.
+
+Joel
+
+
+
+-- 
+
+*/Jo&#235;l VIGNEAU
+/*Laboratoire &quot;Ressources Halieutiques&quot;
+IFREMER
+14 520 Port-en-Bessin
+
+T&#233;l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A>&gt;
+<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000009.html">[Cost-project-members] COST: Data Exchang Format
+</A></li>
+	<LI>Next message: <A HREF="000005.html">[Cost-project-members] COST: survey data - clarification
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

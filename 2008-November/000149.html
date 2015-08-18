@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] Nit picky things about the $foCatEu5 Nantes(DCR) matrix level 5 codes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Nit%20picky%20things%20about%20the%20%24foCatEu5%0A%20Nantes%28DCR%29%20matrix%20level%205%20codes&In-Reply-To=%3C492A701C.7090105%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000148.html">
+   <LINK REL="Next"  HREF="000150.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] Nit picky things about the $foCatEu5 Nantes(DCR) matrix level 5 codes</H1>
+    <B>Joel VIGNEAU</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Nit%20picky%20things%20about%20the%20%24foCatEu5%0A%20Nantes%28DCR%29%20matrix%20level%205%20codes&In-Reply-To=%3C492A701C.7090105%40ifremer.fr%3E"
+       TITLE="[Cost-project-members] Nit picky things about the $foCatEu5 Nantes(DCR) matrix level 5 codes">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Mon Nov 24 10:13:00 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000148.html">[Cost-project-members] Nit picky things about the $foCatEu5 Nantes(DCR) matrix level 5 codes
+</A></li>
+        <LI>Next message: <A HREF="000150.html">[Cost-project-members] Final Standard Data Exchange Format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#149">[ date ]</a>
+              <a href="thread.html#149">[ thread ]</a>
+              <a href="subject.html#149">[ subject ]</a>
+              <a href="author.html#149">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>David Maxwell (Cefas) a &#233;crit :
+&gt;<i> Alastair,
+</I>&gt;<i> Re: 1.
+</I>&gt;<i> I don't know much about the coding so see what the others think. I 
+</I>&gt;<i> agree that not defining all the codes as the same length is an oversight.
+</I>&gt;<i>  
+</I>&gt;<i> A fourth alternative is to add a third letter e.g. PSE instead of 
+</I>&gt;<i> PS. Is this possible or is redefining the codes outside our control?
+</I>&gt;<i> One reason is that if the codes ever have to be entered manually PS_ 
+</I>&gt;<i> is slightly harder to enter than PS or PSE and PS__SPF might get 
+</I>&gt;<i> entered as PS_SPF
+</I>&gt;<i>  
+</I>&gt;<i> For the R commands in your example I agree that using substr with a 
+</I>&gt;<i> fixed code length is easiest but substr can cope with different length 
+</I>&gt;<i> codes e.g. strsplit(&quot;PS_SPF&quot;, split=&quot;_&quot;)
+</I>&gt;<i>  
+</I>&gt;<i> Regards, David
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>     -----Original Message-----
+</I>&gt;<i>     *From:* <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>
+</I>&gt;<i>     [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>]*On Behalf
+</I>&gt;<i>     Of *Alastair Pout
+</I>&gt;<i>     *Sent:* 21 November 2008 11:35
+</I>&gt;<i>     *To:* cost member
+</I>&gt;<i>     *Subject:* [Cost-project-members] Nit picky things about the
+</I>&gt;<i>     $foCatEu5 Nantes(DCR) matrix level 5 codes
+</I>&gt;<i>
+</I>&gt;<i>     Dear Teunis, Henrik, Lisa, Joel, Mathieu, Ernesto and All
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     Nit picky things about the $foCatEu5 Nantes (DCR) matrix level 5
+</I>&gt;<i>     codes .....
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     1. Can we set up an accepted protocol for the combination of level
+</I>&gt;<i>     4 and level 5 codes
+</I>&gt;<i>
+</I>&gt;<i>     These have the form XXX_YYY which is fine when the codes have 3
+</I>&gt;<i>     letters.
+</I>&gt;<i>
+</I>&gt;<i>     With the 2 letter codes e.g. purse seine PS there are a number of
+</I>&gt;<i>     possibilities.
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>         * this becomes PS_ and so there would be for example PS__SPF
+</I>&gt;<i>           for purse seine small pelagic fish, a double underscore but
+</I>&gt;<i>           still 7 characters long.  
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>         * this stays as PS and there would be PS_SPF but this is only
+</I>&gt;<i>           6 characters
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>         * this is PS_SPF_ which is what is in the COSTcore code list
+</I>&gt;<i>           at the moment because PS_SPF_0_0_0 etc is currently in the
+</I>&gt;<i>           FISHFRAME code list as a level 6 and level 5's are defined
+</I>&gt;<i>           as the first 7 characters from the level 6's, which gives
+</I>&gt;<i>           PS_SPF_
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     My preference would be to standardise on the PS__SPF form,
+</I>&gt;<i>
+</I>&gt;<i>     This I think is much less problematical for manipulating when
+</I>&gt;<i>     programming as it means that all level 5 codes are 7 characters
+</I>&gt;<i>     and allows the gear and target assemblage to be split (e.g. using
+</I>&gt;<i>     the R functions substr or strsplit without having to worry that
+</I>&gt;<i>     you get &quot;PF_&quot; as a target assemblage).
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     What does anybody else think?  
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     2. Gear codes: Are we all happy that the gear codes can be any from
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     <A HREF="ftp://ftp.fao.org/FI/DOCUMENT/cwp/handbook/annex/AnnexM1fishinggear.pdf">ftp://ftp.fao.org/FI/DOCUMENT/cwp/handbook/annex/AnnexM1fishinggear.pdf</A>
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     and thus level 5 codes (&amp; level 6 codes)  can be made form these?
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     Or are we adding level 5 (and level 6) codes to the Nantes matrix
+</I>&gt;<i>     in doing this?  
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     e.g. there is no OT code in the level 6's in the 26 feb 2008 def
+</I>&gt;<i>     document but is OT_MPD (or OT__MPD or OT_MPT_) a valid Nantes
+</I>&gt;<i>     matrix level 5 code?
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     Seems to me it should be but I think we run the risk of
+</I>&gt;<i>     proliferating the number of possible metiers.   
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     And the other thing is that $gear is no longer in the
+</I>&gt;<i>     FISHFRAME/COST data exchange format.
+</I>&gt;<i>
+</I>&gt;<i>     Attached is the list of codes we have at FRS for the Nantes matrix
+</I>&gt;<i>     but nobody here seems to know if this is definitive.  
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     3. And for reference, in the FISHFRAME 5.0 COST data exchange
+</I>&gt;<i>     format document in the 26 Feb 2008 version, as Mathieu noticed the
+</I>&gt;<i>     other day, some of the descriptions are wrong in the level 6's,
+</I>&gt;<i>     which is what was used for the current code list in COSTcore
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     e.g. page 43
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     FPO_CRU  - Crustaceans bottom otter trawl
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     FYK_CRU  - Crustaceans bottom otter trawl
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     FYK_MPD -- mixed pelagic and demersal fish -- bottom otter trawl
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     These should be pots and fyke nets and I will correct these in the
+</I>&gt;<i>     COSTcore code.list
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>     All the best
+</I>&gt;<i>
+</I>&gt;<i>     Alastair
+</I>&gt;<i>
+</I>&gt;<i>      
+</I>&gt;<i>
+</I>Hi Alastair,
+
+my point is to keep it as it is. It is true that some gears have 2 
+letters code and some others have 3, but we don't want to redefine the 
+EC Regulation. It will be hard enough for the countries to export their 
+data in the COST R environment, I don't want to add burden on this.
+
+Question 1 : As David has expressed, the &quot;strsplit&quot; function works very 
+well so I encourage the COST developers to use this function to manage 
+the metier coding.
+
+Question 2 : It's very true that FAO standards are richer than the EC 
+Reg. This is because we have filtered the principal codes for the sake 
+of the Regulation, for avoiding panic in the labs!! Anyhow, for COST the 
+entire FAO standard applies, and the user may post-stratify gears into a 
+group &quot;Other&quot; or &quot;Miscellaneous&quot; to cope with the DCR. Concerning your 
+list of gear codes, everything is Ok but GTA?? Don't know what this one 
+is? I would say that the risk of proliferating the number of metiers is 
+not a COST issue. We take the strata one by one as they are defined by 
+the user and proceed to the raising and calculation procedures.
+
+Question  3: In the new code list in annex of the final DEF version (to 
+be put very quickly on the website) there is the reference to the FAO 
+standard for the gear and the code list for the target assemblages, but 
+not anymore a code list for the metier as such. So you must check that 
+the first sequence of letters match the FAO standard and the 2nd 
+sequence of letters match the target assemblage list.
+
+Hope this clarifies the issue.
+
+Best regards
+
+Joel
+
+
+
+
+
+
+ 
+-- 
+
+*/Jo&#235;l VIGNEAU
+/*Laboratoire &quot;Ressources Halieutiques&quot;
+IFREMER
+14 520 Port-en-Bessin
+
+T&#233;l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">Joel.Vigneau at ifremer.fr</A>&gt;
+<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20081124/f1dbe586/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20081124/f1dbe586/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000148.html">[Cost-project-members] Nit picky things about the $foCatEu5 Nantes(DCR) matrix level 5 codes
+</A></li>
+	<LI>Next message: <A HREF="000150.html">[Cost-project-members] Final Standard Data Exchange Format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#149">[ date ]</a>
+              <a href="thread.html#149">[ thread ]</a>
+              <a href="subject.html#149">[ subject ]</a>
+              <a href="author.html#149">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

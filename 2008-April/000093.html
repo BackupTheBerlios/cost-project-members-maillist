@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] New COSTcore version 1.1-0 with a default	post stratification method.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20New%20COSTcore%20version%201.1-0%20with%20a%20default%0A%09post%20stratification%20method.&In-Reply-To=%3C47F5F7B1.6030307%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000092.html">
+   <LINK REL="Next"  HREF="000094.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] New COSTcore version 1.1-0 with a default	post stratification method.</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20New%20COSTcore%20version%201.1-0%20with%20a%20default%0A%09post%20stratification%20method.&In-Reply-To=%3C47F5F7B1.6030307%40ipimar.pt%3E"
+       TITLE="[Cost-project-members] New COSTcore version 1.1-0 with a default	post stratification method.">ernesto at ipimar.pt
+       </A><BR>
+    <I>Fri Apr  4 11:41:05 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000092.html">[Cost-project-members] data functions
+</A></li>
+        <LI>Next message: <A HREF="000094.html">[Cost-project-members] Bug fixed in COSTcore 1.1-0 new version	1.1-1 now in CVS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#93">[ date ]</a>
+              <a href="thread.html#93">[ thread ]</a>
+              <a href="subject.html#93">[ subject ]</a>
+              <a href="author.html#93">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+The new 1.1-0 version is now on the COST repository 
+(<A HREF="https://developer.berlios.de/project/showfiles.php?group_id=7299">https://developer.berlios.de/project/showfiles.php?group_id=7299</A>).
+
+This COSTcore version includes a default method for post stratification, 
+so that you can create csDataCons, ceDataCons and clDataCons objects. 
+Some other small bugfixes were done and a last (I hope) change in the 
+data structure was included to deal with the problem of the order of sex 
+in sl. Please read the NEWS file to get the full picture.
+
+Run _after_ install
+
+library(COSTcore)
+data(sole)
+csv &lt;- csDataVal(sole.cs)
+csc &lt;- csDataCons(csv)
+tr(csc)$time
+hh(csc)$time
+sl(csc)$time
+hl(csc)$time
+ca(csc)$time
+
+the same with technical, space and sort.
+
+Please note that this is _ugly_, _untested_, _undocumented_, etc. The 
+old good opensource dev paradigma &quot;jungle coding&quot;
+
+&quot;Code what you want, code whenever you want, code in whatever language
+you want and maybe write some documentation&quot;
+
+Best
+
+EJ
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000092.html">[Cost-project-members] data functions
+</A></li>
+	<LI>Next message: <A HREF="000094.html">[Cost-project-members] Bug fixed in COSTcore 1.1-0 new version	1.1-1 now in CVS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#93">[ date ]</a>
+              <a href="thread.html#93">[ thread ]</a>
+              <a href="subject.html#93">[ subject ]</a>
+              <a href="author.html#93">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

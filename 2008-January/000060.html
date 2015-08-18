@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] Exchange format updates for FishFrame &amp;	COST
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Exchange%20format%20updates%20for%20FishFrame%20%26%0A%09COST&In-Reply-To=%3C88431FCDD055A44BA5EEE1EC14E7E1512B69A9%40lu-mail-san.dfu.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000059.html">
+   <LINK REL="Next"  HREF="000042.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] Exchange format updates for FishFrame &amp;	COST</H1>
+    <B>Teunis Jansen</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Exchange%20format%20updates%20for%20FishFrame%20%26%0A%09COST&In-Reply-To=%3C88431FCDD055A44BA5EEE1EC14E7E1512B69A9%40lu-mail-san.dfu.local%3E"
+       TITLE="[Cost-project-members] Exchange format updates for FishFrame &amp;	COST">tej at difres.dk
+       </A><BR>
+    <I>Fri Jan 25 19:58:09 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000059.html">[Cost-project-members] Exchange format updates for FishFrame &amp; COST
+</A></li>
+        <LI>Next message: <A HREF="000042.html">[Cost-project-members] Exchange format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-------------------------Find latest posting at the end of this mail-------------------------------------------------------------------------------------- 
+ Dear Teunis,
+
+many thanks for your effort and congratulations for this. 
+I wish a bright future for this FF-COST Data Exchange Format Specification.
+
+My only consideration today is that you provided us with a pure FF DEFS. In order to make it a real FF-COST DEFS, I will remove all the tables and appendices not discussed within COST from your files and I will extend to the whole world a certain number of fixed list in the appendix I. This means that :
+
+
+*	I remove the 3 tables CC and the 8 tables from Acoustic Surveys stage 1 and stage 3. 
+*	I keep the section on tables TS 
+*	From the appendix,
+	
+
+	*	I remove the sections project as it is a free field. 
+	*	I modify the reference for Area (too much restrictive to the ICES world), we must refer to the list available on the JRC website <A HREF="http://datacollection.jrc.ec.europa.eu/c/document_library/get_file?folderId=2502&amp;name=DLFE-261.xls">http://datacollection.jrc.ec.europa.eu/c/document_library/get_file?folderId=2502&amp;name=DLFE-261.xls</A> and on FAO website <A HREF="http://www.fao.org/fishery/area/search">http://www.fao.org/fishery/area/search</A> 
+	*	I modify the reference for Fishing Gear to refer to ISSCFG <A HREF="ftp://ftp.fao.org/FI/DOCUMENT/cwp/handbook/annex/AnnexM1fishinggear.pdf">ftp://ftp.fao.org/FI/DOCUMENT/cwp/handbook/annex/AnnexM1fishinggear.pdf</A>
+		
+	*	I add the mention that the list of Rectangles only applies to ICES areas
+		
+
+	*	I add the international species reference list : <A HREF="ftp://ftp.fao.org/FI/stat/data/ASFIS_sp.zip">ftp://ftp.fao.org/FI/stat/data/ASFIS_sp.zip</A> 
+	*	I remove all AS codes 
+	*	There are other modalities for maturity scale, such as WKMAT (1-5) and IBTS (1-4), do we include them in the reference list? or do we leave this list opened. Same for Commercial Size category scale and Subsampling category.
+		
+	*	Do we keep the Fishing activity category National in the appendix empty?
+		
+
+The modifications suggested do not affect the structure agreed so far, only the presentation and some of the reference lists. You will find enclosed my proposal for the joint FF-COST DEFS. This is not meant to delay any further the final proposal. I imagine we can have a quick exchange on it to fix all possible mistakes and/or ommission.
+
+Later, all discussions on the format occuring while developing the COST packages will have to first consider this DEFS as the reference. There must be rooms for improving this format and we'll have to get strong arguments and reach a full consensus to modify any part of it.
+
+Best regards.
+
+Joel
+
+
+	
+	 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Dear All
+	New version &quot;25 January 2008&quot; attached. 
+	
+	No structural changes in format, only in descriptions and code reference lists:
+	 1. I agree that AS and CC has not been discussed in the COST forum. I suppose that this is likely to happen in a future COST 2. So we will keep the FishFrame-only formats in a separate document until then.
+	 2. I agree in all Joel's suggestions of links to FAO-codes lists and have added the link to the country code list as well. The links instead of the full lists makes appendix 1 more reader friendly (it can now be printed out without having to cut down a forest each time).
+	 3. Some code lists like &quot;FAC national&quot;, &quot;Commercial Size Category Scale&quot;, &quot;Project&quot; are open for additions. This is noted in appendix 1.
+	 4. Due to the removal of SL.ValidityCode some comments should be changed/deleted:
+	      4.1 Comment 1 under SL: Text changed from &quot;Mandatory if validitycode = 1&quot; to &quot;Mandatory if child HL records exist&quot;.
+	      4.2 Comment 1 under HL:  Text removed: &quot;HLs are not allowed is the parent SL record has ValidityCode = 4.&quot;
+	 5. Does anybody know a good official link for the list of statistical rectangles? ICES only seem to have a shape-file. So the full list of rectangles is still in appendix 1.
+	 6. Addition to the description of the sex-fields on HL and CA: &quot;(Optional for &quot;Unsexed&quot;)&quot;.
+	Note that there will be two meetings for reviewing the &quot;Fisheries Activity Category European&quot; matrix soon, this will most likely result in modifications of lvl 6 and possibly 5. Hopefully this will fix these codes for a while. BTW: We should consider having both the minimum and maximum mesh size as part of the code - but lets save the discussion until after the meetings.
+	I suggest that all structural changes from now on are logged in an appendix 3. It is our experience from many exchange format changes in FishFrame 1 to 4, that the users responsible for the data extraction and formatting scripts find this very useful.
+	Best regards
+	Teunis
+	 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20080125/55fc123f/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20080125/55fc123f/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FishFrame-COST data exchange format description.zip
+Type: application/x-zip-compressed
+Size: 602590 bytes
+Desc: FishFrame-COST data exchange format description.zip
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20080125/55fc123f/attachment.bin">https://lists.berlios.de/pipermail/cost-project-members/attachments/20080125/55fc123f/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000059.html">[Cost-project-members] Exchange format updates for FishFrame &amp; COST
+</A></li>
+	<LI>Next message: <A HREF="000042.html">[Cost-project-members] Exchange format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] data functions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20data%20functions&In-Reply-To=%3C47F1031B.8080508%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000088.html">
+   <LINK REL="Next"  HREF="000090.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] data functions</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20data%20functions&In-Reply-To=%3C47F1031B.8080508%40ipimar.pt%3E"
+       TITLE="[Cost-project-members] data functions">ernesto at ipimar.pt
+       </A><BR>
+    <I>Mon Mar 31 17:28:27 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000088.html">[Cost-project-members] data functions
+</A></li>
+        <LI>Next message: <A HREF="000090.html">[Cost-project-members] data functions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#89">[ date ]</a>
+              <a href="thread.html#89">[ thread ]</a>
+              <a href="subject.html#89">[ subject ]</a>
+              <a href="author.html#89">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>David Hirst wrote:
+&gt;<i> Just so I don't reinvent the wheel, has anyone working on the COST data 
+</I>&gt;<i> written some functions to get the data in an appropriate form for 
+</I>&gt;<i> analysis? I am thinking particularly of the bootstrap and exploratory 
+</I>&gt;<i> analysis teams, but anyone else might be able to help.
+</I>&gt;<i>
+</I>&gt;<i> David
+</I>&gt;<i>   
+</I>Hi David,
+
+Our agreement on the &quot;data status&quot; should put the data in an appropriate 
+form for analysis. The idea is that you should not worry with it.
+
+The logic is:
+1) read the data into R;
+2) create the RAW objects, e.g. csData objects with csData methods;
+3) run EDA and create VALIDATED objects, e.g. csDataVal with csDataVal 
+methods;
+4) post-stratify and create CONSOLIDATED objects, e.g. csDataCons with 
+csDataCons methods.
+
+The consolidated objects should be used directly for data analysis, so 
+you should only need to extract the data.frames and implement your 
+statistical methods.
+
+I'm not sure where we are now but I guess the EDA package already sorted 
+out bullet point 3). I'm not sure where they are regarding the 
+post-stratification and creation of consolidated objects.
+
+Best
+
+EJ
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000088.html">[Cost-project-members] data functions
+</A></li>
+	<LI>Next message: <A HREF="000090.html">[Cost-project-members] data functions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#89">[ date ]</a>
+              <a href="thread.html#89">[ thread ]</a>
+              <a href="subject.html#89">[ subject ]</a>
+              <a href="author.html#89">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

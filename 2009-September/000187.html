@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] subset and subSetTarget...
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20subset%20and%20subSetTarget...&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C5812026496F1%40mail4.marlab.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000186.html">
+   <LINK REL="Next"  HREF="000188.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] subset and subSetTarget...</H1>
+    <B>Alastair Pout</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20subset%20and%20subSetTarget...&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C5812026496F1%40mail4.marlab.ac.uk%3E"
+       TITLE="[Cost-project-members] subset and subSetTarget...">A.Pout at MARLAB.AC.UK
+       </A><BR>
+    <I>Thu Sep  3 08:54:13 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000186.html">[Cost-project-members] subset and subSetTarget...
+</A></li>
+        <LI>Next message: <A HREF="000188.html">[Cost-project-members] N_at_Age_direct?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#187">[ date ]</a>
+              <a href="thread.html#187">[ thread ]</a>
+              <a href="subject.html#187">[ subject ]</a>
+              <a href="author.html#187">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE> 
+
+ 
+
+________________________________
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members-bounces at lists.berlios.de</A>] On Behalf Of
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">valerio.bartolino at uniroma1.it</A>
+Sent: 01 September 2009 13:29
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cost-project-members at lists.berlios.de</A>
+Subject: [Cost-project-members] subset and subSetTarget...
+
+ 
+
+I'm a new user of COST and I've just started to explore the multitude of
+functions currently available.
+
+ 
+
+If I've well understood subSetTarget, subSetSpp, ... are more efficient
+and strainghtforward in the use than the generic 'subset' but they
+shouldn't give different results. For this reason I can't explain the
+differences I find in the outputs from running 'subset' and
+'subSetTarget' (respectively 114 OTM_DEF against 121 OTM_DEF, please see
+the code below).
+
+ 
+
+Is there something I'm missing? Any suggestion is welcome, thanks.
+
+ 
+
+&gt;<i> data(cod2004cs)
+</I>
+
+&gt;<i> unique(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cod2004cs at hh</A>$foCatEu5)
+</I>[1] &quot;SSC_DEF&quot; &quot;OTM_DEF&quot; &quot;OTB_CRU&quot; &quot;PTB_DEF&quot; &quot;OTB_DEF&quot;
+
+&gt;<i> # I want to compare the result from subsetting the dataset
+</I>&gt;<i> # with two different commands
+</I>
+&gt;<i> codDEF &lt;- subSetTarget(cod2004cs, &quot;DEF&quot;)
+</I>csData subset by target assemblage DEF 
+New data set consists of 255 trip records 
+255 haul records 
+11371 length records 
+and 10244 age records 
+
+&gt;<i> codDEF2 &lt;- subset(cod2004cs, foCatEu5 %in%
+</I>c(&quot;SSC_DEF&quot;,&quot;OTM_DEF&quot;,&quot;PTB_DEF&quot;,&quot;OTB_DEF&quot;), table=&quot;hh&quot;)
+&gt;<i> 
+</I>&gt;<i> table(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">codDEF at hh</A>$foCatEu5)
+</I>
+OTB_DEF OTM_DEF PTB_DEF SSC_DEF 
+      9     121      62      63 
+&gt;<i> 
+</I>&gt;<i> table(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">codDEF2 at hh</A>$foCatEu5)
+</I>
+OTB_DEF OTM_DEF PTB_DEF SSC_DEF 
+      9     114      62      63 
+
+ 
+
+ 
+
+ 
+
+# Hi 
+
+# this seems to be a bug in subset
+
+# subSetTarget is producing the correct answer
+
+ 
+
+&gt;<i> table(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cod2004cs at hh</A>$foCatEu5)
+</I>
+ 
+
+OTB_CRU OTB_DEF OTM_DEF PTB_DEF SSC_DEF 
+
+    188       9     121      62      63 
+
+&gt;<i> sum(table(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">cod2004cs at hh</A>$foCatEu5))
+</I>
+[1] 443
+
+&gt;<i> dim(cod2004cs)
+</I>
+ 
+
+# so all foCatEu5 fields are accounted for and there are 121 OTM_DEF not
+114 as subset returns
+
+ 
+
+# I've also just tried 
+
+ 
+
+codDEF3 &lt;-subset(cod2004cs, foCatEu5 %in% c(&quot;OTM_DEF&quot;), table=&quot;hh&quot;)
+
+ 
+
+table(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">codDEF3 at hh</A>$foCatEu5)
+
+ 
+
+ 
+
+# and you get 106 records
+
+ 
+
+# Not sure why this is, Ernesto over to you... 
+
+ 
+
+All the best
+
+Alastair
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit <A HREF="http://www.messagelabs.com/email">http://www.messagelabs.com/email</A> 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-members/attachments/20090903/433e7c71/attachment.html">https://lists.berlios.de/pipermail/cost-project-members/attachments/20090903/433e7c71/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000186.html">[Cost-project-members] subset and subSetTarget...
+</A></li>
+	<LI>Next message: <A HREF="000188.html">[Cost-project-members] N_at_Age_direct?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#187">[ date ]</a>
+              <a href="thread.html#187">[ thread ]</a>
+              <a href="subject.html#187">[ subject ]</a>
+              <a href="author.html#187">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>

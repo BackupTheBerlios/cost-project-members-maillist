@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Cost-project-members] Exchange format
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-members/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Exchange%20format&In-Reply-To=%3C4784ACDE.2030108%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000042.html">
+   <LINK REL="Next"  HREF="000048.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Cost-project-members] Exchange format</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-members%40lists.berlios.de?Subject=Re%3A%20%5BCost-project-members%5D%20Exchange%20format&In-Reply-To=%3C4784ACDE.2030108%40ipimar.pt%3E"
+       TITLE="[Cost-project-members] Exchange format">ernesto at ipimar.pt
+       </A><BR>
+    <I>Wed Jan  9 12:15:42 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000042.html">[Cost-project-members] Exchange format
+</A></li>
+        <LI>Next message: <A HREF="000048.html">[Cost-project-members] Interim report and COST meeting 2008
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#43">[ date ]</a>
+              <a href="thread.html#43">[ thread ]</a>
+              <a href="subject.html#43">[ subject ]</a>
+              <a href="author.html#43">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Teunis Jansen wrote:
+&gt;<i> Dear All COST developers working with data input classes/methods
+</I>&gt;<i>  
+</I>&gt;<i> During programming of the upload and validation in FishFrame 5.0, we 
+</I>&gt;<i> have found a deviation from the design rules in the exchange format. 
+</I>&gt;<i> This deviation makes problems for our generic coding, so we have to 
+</I>&gt;<i> make ugly hacks.
+</I>&gt;<i> The design rule is that key fields are inherited from parent data 
+</I>&gt;<i> types to child data types and appear there in the same order as in the 
+</I>&gt;<i> parent type. So CA record fields should inherit the TR key fields. It 
+</I>&gt;<i> does, but I placed /Quarter/ and /Month/ directly after /Year/ to keep 
+</I>&gt;<i> the time information gathered, but this was a mistake. TR key fields 
+</I>&gt;<i> ends after /Trip number./ Next field is then/ Station no, /the key 
+</I>&gt;<i> field for HH. I therefore suggest that we move /Quarter/ and /Month/ 
+</I>&gt;<i> to directly after /Station no./
+</I>&gt;<i> Both fields (/Quarter/ and /Month/) are key fields, so they should 
+</I>&gt;<i> also have an asterisk marking - I just found out that I had forgot 
+</I>&gt;<i> putting asterisk on them in the document.
+</I>&gt;<i>  
+</I>&gt;<i> How would this reordering affect your programming. Would it be OK for you?
+</I>&gt;<i>
+</I>&gt;<i> Best regards
+</I>&gt;<i>
+</I>&gt;<i> Teunis
+</I>&gt;<i>
+</I>
+Hi Teunis,
+
+The reordering is ok _if_ we agree in keeping the order in COST's class 
+definition as it is now. In that case we'll need to change the io 
+methods to read the columns in the correct order, which is easy to do.
+
+Best
+
+EJ
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000042.html">[Cost-project-members] Exchange format
+</A></li>
+	<LI>Next message: <A HREF="000048.html">[Cost-project-members] Interim report and COST meeting 2008
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#43">[ date ]</a>
+              <a href="thread.html#43">[ thread ]</a>
+              <a href="subject.html#43">[ subject ]</a>
+              <a href="author.html#43">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-members">More information about the Cost-project-members
+mailing list</a><br>
+</body></html>
